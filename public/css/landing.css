@@ -1,0 +1,186 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background: url(../images/landing/background.jpg) center center / cover no-repeat;
+    overflow-x: hidden;
+}
+
+
+/* Navbar in the side*/
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* side-nav */
+
+#side-nav {
+    position: fixed;
+    left: -150px;
+    top: 0;
+    width: 150px;
+    height: 100vh;
+    background: transparent;
+    z-index: 1;
+    /*   transition: all 0.3s; */
+}
+
+
+/* #side-nav.open {left: 0;} */
+
+#side-nav h1 {
+    padding: 20px 20px 20px 20px;
+    color: #fff;
+    font-size: 33px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#side-nav li a {
+    padding: 14px 20px;
+    display: block;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#side-nav li:hover {
+    background: rgba(117, 92, 21, 0.4);
+    opacity: .5;
+}
+
+#side-nav .navBtn {
+    position: absolute;
+    right: -60px;
+    top: 10px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 2em;
+}
+
+.logonav {
+    width: 60%;
+    height: auto;
+    margin: 25% 25% 25% 20%;
+}
+
+.optionsnav {
+    font-family: 'Raleway', sans-serif;
+    color: #e6e6e6;
+    font-weight: 700;
+    text-align: center;
+}
+
+.optionsnav:hover {
+    text-decoration: none;
+}
+
+
+/*nav small*/
+
+.navsmall {
+    z-index: 99;
+    display: none;
+}
+
+
+/*Hexagons background*/
+
+.hexagons {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hexagons polygon {
+    fill: rgba(255, 255, 255, 0);
+    stroke: #fff;
+    stroke-width: 0.5;
+    stroke-opacity: 0.08;
+    transition: all 1s cubic-bezier(.44, .73, .63, 1);
+}
+
+.hexagons:hover {
+    fill: rgba(255, 255, 255, 0.08);
+}
+
+.active polygon {
+    fill: rgba(255, 255, 255, 0.2);
+}
+
+.hexagons polygon:hover {
+    fill: rgba(255, 255, 255, 0.08);
+}
+
+
+/*page content*/
+
+.content {
+    margin: auto;
+    margin-top: 15%;
+}
+
+
+/*login page*/
+
+.panel {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.panel-heading {
+    text-align: center !important;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+    letter-spacing: 4px;
+    color: white !important;
+    background-color: transparent !important;
+}
+
+.form-control {
+    background-color: #504b0c !important;
+    opacity: 0.3;
+    color: #e6e6e6 !important;
+}
+
+.form-control:hover {
+    opacity: 0.7;
+}
+
+.form-control:focus {
+    opacity: 0.7;
+}
+
+.btnlogin {
+    background-color: #696969 !important;
+    opacity: 0.5 !important;
+    border: none !important;
+    color: white !important;
+}
+
+@media (max-width: 990px) {
+    #side-nav {
+        display: none;
+    }
+    .navsmall {
+        display: block;
+    }
+}

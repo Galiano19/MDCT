@@ -1,0 +1,313 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #242422;
+    overflow-x: hidden;
+}
+
+
+/*first state***********************************************************************************************************/
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+section::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 80%;
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .8) 80%, rgba(0, 0, 0, .8) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .8) 80%, rgba(0, 0, 0, .8) 100%);
+}
+
+#section01 {
+    -webkit-animation: background 30s cubic-bezier(1, 0, 0, 1) infinite;
+    animation: background 30s cubic-bezier(1, 0, 0, 1) infinite;
+    background-size: cover;
+}
+
+#section01 {
+    background: url(../images/HEADER.jpg) center center / cover no-repeat
+}
+
+.demo a {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    z-index: 2;
+    display: inline-block;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #fff;
+    font: normal 400 20px/1 'Josefin Sans', sans-serif;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: opacity .3s;
+}
+
+.demo a:hover {
+    opacity: .5;
+}
+
+#section01 a {
+    padding-top: 60px;
+}
+
+#section01 a span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+
+.arrow1 {
+    position: absolute;
+    margin-top: 15%;
+    margin-left: -10%;
+    overflow: hidden;
+    -webkit-animation-name: arrow1;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: arrow1;
+    animation-duration: 2s;
+}
+
+
+/* Safari 4.0 - 8.0 */
+
+@-webkit-keyframes arrow1 {
+    0% {
+        margin-left: -30%;
+    }
+    100% {
+        margin-left: -10%;
+    }
+}
+
+
+/* Standard syntax */
+
+@keyframes arrow1 {
+    0% {
+        margin-left: -30%;
+    }
+    100% {
+        margin-left: -10%;
+    }
+}
+
+.arrow2 {
+    position: absolute;
+    margin-left: 65%;
+    opacity: .5;
+    overflow: hidden;
+    -webkit-animation-name: arrow2;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: arrow2;
+    animation-duration: 2s;
+}
+
+
+/* Safari 4.0 - 8.0 */
+
+@-webkit-keyframes arrow2 {
+    0% {
+        margin-left: 85%;
+    }
+    100% {
+        margin-left: 65%;
+    }
+}
+
+
+/* Standard syntax */
+
+@keyframes arrow2 {
+    0% {
+        margin-left: 85%;
+    }
+    100% {
+        margin-left: 65%;
+    }
+}
+
+.ourname {
+    color: #fff;
+    position: absolute;
+    top: 75%;
+    left: 36%;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 2s;
+    letter-spacing: 8px;
+}
+
+
+/* Safari 4.0 - 8.0 */
+
+@-webkit-keyframes ourname {
+    0% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Standard syntax */
+
+@keyframes ourname {
+    0% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.loginarea {
+    position: absolute;
+    background-color: #39331d;
+    height: 10%;
+    width: 15%;
+    top: 8%;
+    left: 5%;
+    border-radius: 12px;
+}
+
+.logo_login {
+    color: rgb(121, 115, 60);
+    font-size: 5em;
+    margin-top: 3%;
+    margin-left: 10%;
+}
+
+.logintitle {
+    position: relative;
+    font-size: 2.5em;
+    top: -25%;
+    left: 5%;
+    color: white;
+    opacity: 0.3;
+    text-align: center;
+    letter-spacing: 4px;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+/* formulari login*/
+
+.formlogin {
+    position: absolute;
+    background-color: #534b2b;
+    opacity: 0;
+    height: 305%;
+    width: 180%;
+    top: -5%;
+    border-radius: 12px;
+    z-index: 1;
+}
+
+.formlogin:hover {
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.formulari {
+    margin: 5% 5% 5% 5%;
+}
+
+
+/* second state ************************************************************************************************************************************************/
+
+.statetwooptions {
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+
+.option {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 110%;
+    width: 25%;
+    background-color: transparent;
+    color: #ffffff;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+
+.option :after {
+    background: #fff;
+    width: 0;
+    height: 6px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: '';
+    -webkit-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+
+.imageoption {
+    width: 110%;
+    height: auto;
+    max-width: 100%;
+}
+
+.linkoption {
+    letter-spacing: 4px;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    color: #e6e6e6;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    padding: 0 30px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.option a:hover img,
+.option a.hover img {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.option a:hover:after,
+.option a.hover:after {
+    width: 100%;
+}
