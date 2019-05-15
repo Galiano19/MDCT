@@ -1,0 +1,240 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background: url(../images/landing/background.jpg) center center / cover no-repeat;
+    overflow-x: hidden;
+}
+
+
+/* Navbar in the side*/
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* side-nav */
+
+#side-nav {
+    position: fixed;
+    left: -150px;
+    top: 0;
+    width: 150px;
+    height: 100vh;
+    background: transparent;
+    z-index: 1;
+    /*   transition: all 0.3s; */
+}
+
+
+/* #side-nav.open {left: 0;} */
+
+#side-nav h1 {
+    padding: 20px 20px 20px 20px;
+    color: #fff;
+    font-size: 33px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#side-nav li a {
+    padding: 14px 20px;
+    display: block;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#side-nav li:hover {
+    background: rgba(117, 92, 21, 0.4);
+    opacity: .5;
+}
+
+#side-nav .navBtn {
+    position: absolute;
+    right: -60px;
+    top: 10px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 2em;
+}
+
+.logonav {
+    width: 60%;
+    height: auto;
+    margin: 25% 25% 25% 20%;
+}
+
+.optionsnav {
+    font-family: 'Raleway', sans-serif;
+    color: #e6e6e6;
+    font-weight: 700;
+    text-align: center;
+}
+
+.optionsnav:hover {
+    text-decoration: none;
+}
+
+
+/*nav small*/
+
+.navsmall {
+    z-index: 99;
+    display: none;
+}
+
+
+/*Hexagons background*/
+
+.hexagons {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hexagons polygon {
+    fill: rgba(255, 255, 255, 0);
+    stroke: #fff;
+    stroke-width: 0.5;
+    stroke-opacity: 0.03;
+    transition: all 1s cubic-bezier(.44, .73, .63, 1);
+}
+
+.hexagons:hover {
+    fill: rgba(255, 255, 255, 0.03);
+}
+
+.active polygon {
+    fill: rgba(255, 255, 255, 0.03);
+}
+
+.hexagons polygon:hover {
+    fill: rgba(255, 255, 255, 0.03);
+}
+
+
+/*page content*/
+
+.content {
+    margin: auto;
+    margin-top: 10%;
+}
+
+
+/*userpage*/
+
+.panel {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.panel-heading {
+    text-align: center !important;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 8em;
+    letter-spacing: 1em;
+    padding-left: 0.5em;
+    color: white !important;
+    background-color: transparent !important;
+    text-transform: uppercase;
+    border-color: transparent!important;
+    margin: 0 auto;
+}
+
+.nickname {}
+
+.fancy {
+    line-height: 0.5;
+    text-align: center;
+}
+
+.fancy span {
+    display: inline-block;
+    position: relative;
+    text-align: center !important;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+    letter-spacing: 0.5em;
+    padding-left: 0.5em;
+    color: white !important;
+    text-transform: uppercase;
+}
+
+.fancy span:before,
+.fancy span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    top: 0;
+    width: 15em;
+    max-width: 15em;
+}
+
+.fancy span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.fancy span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+.hexagondiv {
+    position: relative;
+    width: 22em;
+    height: 12em;
+    background-color: #64C7CC;
+    margin: 6em 0;
+    /**/
+    /*margin: 86.60px 0;*/
+}
+
+.hexagondiv:before,
+.hexagondiv:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 11em solid transparent;
+    border-right: 11em solid transparent;
+}
+
+.hexagondiv:before {
+    bottom: 100%;
+    border-bottom: 86.60px solid #64C7CC;
+}
+
+.hexagondiv:after {
+    top: 100%;
+    width: 0;
+    border-top: 86.60px solid #64C7CC;
+}
+
+@media (max-width: 990px) {
+    #side-nav {
+        display: none;
+    }
+    .navsmall {
+        display: block;
+    }
+}
