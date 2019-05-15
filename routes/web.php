@@ -28,3 +28,5 @@ Route::get('/characters/index', 'CharacterController@indexCharacters');
 Route::post('/characters/store', 'CharacterController@store');
 
 Route::get('/characters/modify/{charid}', 'CharacterController@modifyCharacters');
+
+Route::post('/characters/update/{charid}', 'CharacterController@update');

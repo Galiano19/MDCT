@@ -9,7 +9,7 @@
     <div class="row">
     
         
-        <form method="POST" action="{{ action('CharacterController@store') }}">
+        <form method="POST" action="{{ action('CharacterController@update',['charid' => $character->id]) }}">
 
                     {{ csrf_field() }}
 
