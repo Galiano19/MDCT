@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <a href="{{ action('CharacterController@indexCharacters') }}">Characters</a><br>
-                    <a href="{{ url('/campaigns/') }}">Campaigns</a>
+                    <a href="{{ action('CampaignController@indexCampaigns') }}">Campaigns</a>
                 </div>
             </div>
         </div>
