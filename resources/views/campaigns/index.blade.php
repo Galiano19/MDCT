@@ -15,6 +15,9 @@
                 <div class="col-sm-3"><a href="">Modify</a><br></div>
             </div>
         @endforeach
+        <div class="md-12">
+        <a href="{{ action('CampaignController@createCampaigns') }}">Create Campaign</a>
+        </div>
     </div>
 </div>
 @endsection

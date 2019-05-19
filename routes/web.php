@@ -32,3 +32,7 @@ Route::get('/characters/modify/{charid}', 'CharacterController@modifyCharacters'
 Route::post('/characters/update/{charid}', 'CharacterController@update');
 
 Route::get('/campaigns/index', 'CampaignController@indexCampaigns');
+
+Route::get('/campaigns/create', 'CampaignController@createCampaigns');
+
+Route::post('/campaigns/store', 'CampaignController@store');

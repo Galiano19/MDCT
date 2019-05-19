@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Campaign extends Model
 {
+
+    public $timestamps = false;
+
+    protected $table ='campaigns';
+
+    protected $fillable = [
+        'name', 'description', 
+    ];
+
     public function role(){
         return $this->belongsToMany('App\Role');
     }
