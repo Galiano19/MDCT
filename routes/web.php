@@ -36,3 +36,5 @@ Route::get('/campaigns/index', 'CampaignController@indexCampaigns');
 Route::get('/campaigns/create', 'CampaignController@createCampaigns');
 
 Route::post('/campaigns/store', 'CampaignController@store');
+
+Route::get('/campaign/check/{campid}', 'CampaignController@checkCampaign');

@@ -70,13 +70,13 @@ class CampaignController extends Controller{
             
             if(Auth::check()){
             
-                $id =\Auth::user()->id;
+                $iduser =\Auth::user()->id;
                 //$role = Role::where('user_id', '=', $id)->get();
                 //$campaigns = Campaign::where('id', '=', $role->campaign_id)->get();
                 $campaigns =  DB::table('campaigns')
                     ->join('roles','roles.campaign_id', '=', 'id')
                     ->join('users','users.id', '=', 'roles.user_id')
-                    ->where('users.id', '=', $id)
+                    ->where('users.id', '=', $iduser)
                     ->get();
                 return view('campaigns.index', array('campaigns'=>$campaigns));
             }else{
@@ -87,6 +87,21 @@ class CampaignController extends Controller{
             return view('welcome');
         }
 
+        
+    }
+
+    public function checkCampaign($campid){
+        $id =\Auth::user()->id;
+        $campaign = Campaign::find($campid)->first();
+
+        $users = DB::table('users')
+        ->join('roles','roles.user_id', '=', 'users.id')
+        ->join('campaigns','campaigns.id', '=', 'roles.campaign_id')
+        ->where('campaigns.id', '=', $campid)
+        ->get();
+
+
+        return view('campaigns.check', compact('users','campaign'));
         
     }
 
