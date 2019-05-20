@@ -10,6 +10,7 @@ use App\Campaign;
 use App\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 class CampaignController extends Controller{
     
     public function __construct(){
@@ -92,7 +93,7 @@ class CampaignController extends Controller{
 
     public function checkCampaign($campid){
         $id =\Auth::user()->id;
-        $campaign = Campaign::find($campid)->first();
+        $campaign = Campaign::find($campid);
 
         $users = DB::table('users')
         ->join('roles','roles.user_id', '=', 'users.id')
@@ -103,6 +104,36 @@ class CampaignController extends Controller{
 
         return view('campaigns.check', compact('users','campaign'));
         
+    }
+
+    public function joinCampaign(Request $request){
+        $userid =\Auth::user()->id;
+        $code = $request->input('code');
+        $campaign = Campaign::where('code', '=', $code)->firstOrFail();
+
+        $role = new Role;
+        $role->campaign_id = $campaign->id;
+        $role->user_id = $userid;
+        $role->role = 1;
+        $role->save();
+
+        if(Auth::check()){
+            
+            $campaigns =  DB::table('campaigns')
+                ->join('roles','roles.campaign_id', '=', 'id')
+                ->join('users','users.id', '=', 'roles.user_id')
+                ->where('users.id', '=', $userid)
+                ->get();
+            return view('campaigns.index', array('campaigns'=>$campaigns));
+        }else{
+            return view('welcome');
+        }
+        
+        
+    }
+
+    public function prejoinCampaign(){
+        return view('campaigns.prejoin');
     }
 
 

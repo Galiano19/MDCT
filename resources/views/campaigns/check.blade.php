@@ -4,6 +4,7 @@
 <div class="container">
 Campaign Name: {{$campaign->name}}<br>
 Campaign Code: {{$campaign->code}}<br>
+Campaign Code: {{$campaign->description}}<br>
     <div class="row">
         
         USERS: <br>

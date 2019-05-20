@@ -38,3 +38,7 @@ Route::get('/campaigns/create', 'CampaignController@createCampaigns');
 Route::post('/campaigns/store', 'CampaignController@store');
 
 Route::get('/campaign/check/{campid}', 'CampaignController@checkCampaign');
+
+Route::post('/campaigns/join', 'CampaignController@joinCampaign');
+
+Route::get('/campaign/prejoin', 'CampaignController@prejoinCampaign');
