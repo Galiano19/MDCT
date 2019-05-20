@@ -23,8 +23,6 @@ class CampaignController extends Controller{
         if(Auth::check()){
             
             $id =\Auth::user()->id;
-            //$role = Role::where('user_id', '=', $id)->get();
-            //$campaigns = Campaign::where('id', '=', $role->campaign_id)->get();
             $campaigns =  DB::table('campaigns')
                 ->join('roles','roles.campaign_id', '=', 'id')
                 ->join('users','users.id', '=', 'roles.user_id')
@@ -69,21 +67,7 @@ class CampaignController extends Controller{
             $role->role = 0;
             $role->save();
             
-            if(Auth::check()){
-            
-                $iduser =\Auth::user()->id;
-                //$role = Role::where('user_id', '=', $id)->get();
-                //$campaigns = Campaign::where('id', '=', $role->campaign_id)->get();
-                $campaigns =  DB::table('campaigns')
-                    ->join('roles','roles.campaign_id', '=', 'id')
-                    ->join('users','users.id', '=', 'roles.user_id')
-                    ->where('users.id', '=', $iduser)
-                    ->get();
-                return view('campaigns.index', array('campaigns'=>$campaigns));
-            }else{
-                return view('welcome');
-            }
-            
+            return back();
         }else{
             return view('welcome');
         }
@@ -117,17 +101,7 @@ class CampaignController extends Controller{
         $role->role = 1;
         $role->save();
 
-        if(Auth::check()){
-            
-            $campaigns =  DB::table('campaigns')
-                ->join('roles','roles.campaign_id', '=', 'id')
-                ->join('users','users.id', '=', 'roles.user_id')
-                ->where('users.id', '=', $userid)
-                ->get();
-            return view('campaigns.index', array('campaigns'=>$campaigns));
-        }else{
-            return view('welcome');
-        }
+        return back();
         
         
     }

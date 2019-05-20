@@ -28,7 +28,8 @@
                         Join Campaign
                     </button>
 
-                    </form>
+                    </form><br>
+                    <a href="{{action('CampaignController@indexCampaigns')}}">Go Back</a>
 
                 </div>
             </div>

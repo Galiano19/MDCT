@@ -17,7 +17,7 @@
             </div>
         @endforeach
         <div class="md-12">
-        <a href="{{ action('CampaignController@createCampaigns') }}">Create Campaign</a>
+        <a href="{{ action('CampaignController@createCampaigns') }}">Create Campaign</a><br>
         <a href="{{ action('CampaignController@prejoinCampaign') }}">Join a Campaign</a>
         </div>
     </div>

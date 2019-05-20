@@ -34,6 +34,8 @@
 
                     </form>
 
+                    <a href="{{action('CampaignController@indexCampaigns')}}">Go Back</a>
+
                 </div>
             </div>
         </div>
