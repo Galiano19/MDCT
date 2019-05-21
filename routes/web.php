@@ -30,3 +30,15 @@ Route::post('/characters/store', 'CharacterController@store');
 Route::get('/characters/modify/{charid}', 'CharacterController@modifyCharacters');
 
 Route::post('/characters/update/{charid}', 'CharacterController@update');
+
+Route::get('/campaigns/index', 'CampaignController@indexCampaigns');
+
+Route::get('/campaigns/create', 'CampaignController@createCampaigns');
+
+Route::post('/campaigns/store', 'CampaignController@store');
+
+Route::get('/campaign/check/{campid}', 'CampaignController@checkCampaign');
+
+Route::post('/campaigns/join', 'CampaignController@joinCampaign');
+
+Route::get('/campaign/prejoin', 'CampaignController@prejoinCampaign');
