@@ -151,6 +151,7 @@ a {
     font-family: 'Times New Roman', Times, serif;
     font-size: 3em;
     letter-spacing: 1em;
+    padding-left: 1em;
     color: white !important;
     vertical-align: center;
     background-color: transparent !important;
@@ -218,6 +219,53 @@ a {
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
     opacity: 0.8;
+}
+
+.buttonselect {
+    z-index: 999;
+}
+
+.charactercard {
+    background-color: rgba(0, 0, 0, 0.3)!important;
+    margin-bottom: 2%;
+    vertical-align: 2%;
+}
+
+.card-title {
+    color: #fff;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+}
+
+.card-subtitle {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+}
+
+.card-text {
+    color: darkgoldenrod;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+}
+
+.createCharacter h3 {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+}
+
+.createCharacter label {
+    color: darkgoldenrod;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+}
+
+.createCharacter p {
+    color: darkgoldenrod;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
 }
 
 
