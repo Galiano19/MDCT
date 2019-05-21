@@ -42,3 +42,5 @@ Route::get('/campaign/check/{campid}', 'CampaignController@checkCampaign');
 Route::post('/campaigns/join', 'CampaignController@joinCampaign');
 
 Route::get('/campaign/prejoin', 'CampaignController@prejoinCampaign');
+
+Route::get('/encounters/create', 'EncounterController@createEncounter');

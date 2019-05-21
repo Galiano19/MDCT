@@ -85,8 +85,27 @@ class CampaignController extends Controller{
         ->where('campaigns.id', '=', $campid)
         ->get();
 
+        $roleuser = DB::table('roles')
+        ->join('users','users.id', '=', 'roles.user_id')
+        ->join('campaigns','campaigns.id', '=', 'roles.campaign_id')
+        ->where('campaigns.id', '=', $campid)
+        ->where('users.id', '=', $id)
+        ->get();
 
-        return view('campaigns.check', compact('users','campaign'));
+        $usercheck = DB::table('campaigns')
+        ->join('roles','roles.campaign_id', '=', 'id')
+        ->join('users','users.id', '=', 'roles.user_id')
+        ->where('users.id', '=', $id)
+        ->where('campaigns.id', '=', $campid)
+        ->first();
+
+        if($usercheck==null){
+            return redirect()->action('CampaignController@indexCampaigns');
+        }else{
+            return view('campaigns.check', compact('users','campaign','roleuser'));
+        }
+
+        
         
     }
 
