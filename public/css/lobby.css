@@ -149,10 +149,10 @@ a {
 .panel-heading {
     text-align: center !important;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 8em;
+    font-size: 3em;
     letter-spacing: 1em;
-    padding-left: 0.5em;
     color: white !important;
+    vertical-align: center;
     background-color: transparent !important;
     text-transform: uppercase;
     border-color: transparent!important;
@@ -200,35 +200,28 @@ a {
     margin-left: 15px;
 }
 
-.hexagondiv {
-    position: relative;
-    width: 22em;
-    height: 12em;
-    background-color: #64C7CC;
-    margin: 6em 0;
-    /**/
-    /*margin: 86.60px 0;*/
+.selectorrow {
+    padding-top: 5%;
 }
 
-.hexagondiv:before,
-.hexagondiv:after {
-    content: "";
-    position: absolute;
-    width: 0;
-    border-left: 11em solid transparent;
-    border-right: 11em solid transparent;
+.selectbtn a img {
+    width: 70%;
+    height: auto;
+    margin-bottom: 10%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.hexagondiv:before {
-    bottom: 100%;
-    border-bottom: 86.60px solid #64C7CC;
+.selectbtn a img:hover {
+    box-shadow: 0 4px 8px 0 rgba(133, 132, 83, 0.2), 0 6px 20px 0 rgba(218, 212, 137, 0.19);
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    opacity: 0.8;
 }
 
-.hexagondiv:after {
-    top: 100%;
-    width: 0;
-    border-top: 86.60px solid #64C7CC;
-}
+
+/*slide in animation*/
 
 @media (max-width: 990px) {
     #side-nav {
@@ -236,5 +229,77 @@ a {
     }
     .navsmall {
         display: block;
+    }
+}
+
+
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 375px
+*/
+
+@media (min-width: 320px) and (max-width: 374px) {
+    .panel-heading {
+        font-size: 1.2em;
+    }
+}
+
+
+/* 
+    ##Device = iphone 7/8 (Portrait)
+    ##Screen = B/w 375px to 479px
+*/
+
+@media (min-width: 375px) and (max-width: 480px) {
+    .panel-heading {
+        font-size: 1.5em;
+    }
+}
+
+
+/* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .panel-heading {
+        font-size: 1.5em;
+    }
+}
+
+
+/* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+    .panel-heading {
+        font-size: 3.5em;
+    }
+}
+
+
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .panel-heading {
+        font-size: 3.5em;
+    }
+}
+
+
+/* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+    .panel-heading {
+        font-size: 3em;
     }
 }

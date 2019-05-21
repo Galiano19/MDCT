@@ -64,7 +64,7 @@ section::after {
     padding-top: 60px;
 }
 
-#section01 a span {
+#section01 a .flecha {
     position: absolute;
     top: 0;
     left: 50%;
@@ -82,6 +82,7 @@ section::after {
     position: absolute;
     margin-top: 15%;
     margin-left: -10%;
+    opacity: 0.5;
     overflow: hidden;
     -webkit-animation-name: arrow1;
     /* Safari 4.0 - 8.0 */
@@ -194,7 +195,7 @@ section::after {
     position: absolute;
     background-color: #39331d;
     height: 10%;
-    width: 15%;
+    width: 18%;
     top: 8%;
     left: 5%;
     border-radius: 12px;
@@ -204,19 +205,18 @@ section::after {
     color: rgb(121, 115, 60);
     font-size: 5em;
     margin-top: 3%;
-    margin-left: 10%;
 }
 
 .logintitle {
     position: relative;
     font-size: 2.5em;
-    top: -25%;
-    left: 5%;
+    left: 10%;
+    margin-top: 6%;
     color: white;
     opacity: 0.3;
     text-align: center;
     letter-spacing: 4px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 
@@ -226,7 +226,7 @@ section::after {
     position: absolute;
     background-color: #534b2b;
     opacity: 0;
-    height: 305%;
+    height: 358%;
     width: 180%;
     top: -5%;
     border-radius: 12px;
@@ -310,4 +310,298 @@ section::after {
 .option a:hover:after,
 .option a.hover:after {
     width: 100%;
+}
+
+
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 375px
+*/
+
+@media (min-width: 320px) and (max-width: 374px) {
+    .logo_login {
+        font-size: 3em;
+        height: 8%;
+        margin-left: -23%;
+    }
+    .arrow1 {
+        display: none;
+    }
+    .arrow2 {
+        display: none;
+    }
+    .ourname {
+        left: 17%;
+        font-size: 0.7em;
+    }
+    .logintitle {
+        display: none;
+    }
+    .loginarea {
+        width: 17%;
+        height: 6%;
+    }
+    .formlogin {
+        height: 660%;
+        width: 521%;
+    }
+}
+
+
+/* 
+    ##Device = iphone 7/8 (Portrait)
+    ##Screen = B/w 375px to 479px
+*/
+
+@media (min-width: 375px) and (max-width: 480px) {
+    .logo_login {
+        font-size: 3em;
+        height: 8%;
+        margin-left: -11%;
+    }
+    .arrow1 {
+        margin-left: -186%;
+    }
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes arrow1 {
+        0% {
+            margin-left: -200%;
+        }
+        100% {
+            margin-left: -186%;
+        }
+    }
+    /* Standard syntax */
+    @keyframes arrow1 {
+        0% {
+            margin-left: -200%;
+        }
+        100% {
+            margin-left: -186%;
+        }
+    }
+    .arrow2 {
+        margin-left: 76%;
+    }
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes arrow2 {
+        0% {
+            margin-left: 100%;
+        }
+        100% {
+            margin-left: 76%;
+        }
+    }
+    /* Standard syntax */
+    @keyframes arrow2 {
+        0% {
+            margin-left: 100%;
+        }
+        100% {
+            margin-left: 7m6%;
+        }
+    }
+    .ourname {
+        left: 24%;
+        font-size: 0.7em;
+    }
+    .logintitle {
+        display: none;
+    }
+    .loginarea {
+        width: 17%;
+        height: 8%;
+    }
+    .formlogin {
+        height: 660%;
+        width: 521%;
+    }
+}
+
+
+/* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .logo_login {
+        font-size: 3em;
+        height: 8%;
+    }
+    .arrow1 {
+        margin-left: -145%;
+    }
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes arrow1 {
+        0% {
+            margin-left: -200%;
+        }
+        100% {
+            margin-left: -145%;
+        }
+    }
+    /* Standard syntax */
+    @keyframes arrow1 {
+        0% {
+            margin-left: -200%;
+        }
+        100% {
+            margin-left: -145%;
+        }
+    }
+    .ourname {
+        left: 5%;
+        font-size: 0.7em;
+    }
+    .logintitle {
+        display: none;
+    }
+    .loginarea {
+        width: 17%;
+        height: 6%;
+    }
+    .formlogin {
+        height: 615%;
+        width: 521%;
+    }
+}
+
+
+/* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .logo_login {
+        font-size: 3em;
+        height: 8%;
+    }
+    .arrow1 {
+        margin-left: -74%;
+    }
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes arrow1 {
+        0% {
+            margin-left: -90%;
+        }
+        100% {
+            margin-left: -74%;
+        }
+    }
+    /* Standard syntax */
+    @keyframes arrow1 {
+        0% {
+            margin-left: -90%;
+        }
+        100% {
+            margin-left: -74%;
+        }
+    }
+    .ourname {
+        left: 16%;
+    }
+    .logintitle {
+        margin-top: 6%;
+        left: 8%;
+        font-size: 1.5em;
+    }
+    .loginarea {
+        width: 23%;
+        height: 7%;
+    }
+    .formlogin {
+        height: 600%;
+    }
+}
+
+
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .logo_login {
+        font-size: 3em;
+        height: 8%;
+    }
+    .arrow1 {
+        margin-left: -74%;
+    }
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes arrow1 {
+        0% {
+            margin-left: -90%;
+        }
+        100% {
+            margin-left: -74%;
+        }
+    }
+    /* Standard syntax */
+    @keyframes arrow1 {
+        0% {
+            margin-left: -90%;
+        }
+        100% {
+            margin-left: -74%;
+        }
+    }
+    .ourname {
+        left: 16%;
+    }
+    .logintitle {
+        margin-top: 6%;
+        left: 8%;
+        font-size: 1.5em;
+    }
+    .loginarea {
+        width: 23%;
+        height: 7%;
+    }
+    .formlogin {
+        height: 600%;
+    }
+}
+
+
+/* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .arrow1 {
+        margin-left: -43%;
+    }
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes arrow1 {
+        0% {
+            margin-left: -50%;
+        }
+        100% {
+            margin-left: -43%;
+        }
+    }
+    /* Standard syntax */
+    @keyframes arrow1 {
+        0% {
+            margin-left: -50%;
+        }
+        100% {
+            margin-left: -43%;
+        }
+    }
+    .ourname {
+        left: 25%;
+    }
+    .logintitle {
+        font-size: 1.5em;
+        left: 16%;
+        margin-top: 13%;
+    }
+    .loginarea {
+        width: 20%;
+    }
 }
