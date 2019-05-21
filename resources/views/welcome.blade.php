@@ -7,13 +7,15 @@
 
         <title>Laravel</title>
 
-        <!-- Bootstrap -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <!-- Jquery scrolldown-->
         <script type="text/javascript" src="{{ asset('js/scrolldown.js') }}"></script>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -28,18 +30,22 @@
     <!-- State one -->
     <section id="section01" class="demo">
         <div class="loginarea">
-        
-            <i class="material-icons logo_login" >account_circle</i>
-            <span class="logintitle">LOGIN</span>
+            <div class="container">
+                <div class="row">
+                <i class="col-3 material-icons logo_login" >account_circle</i>
+            
             @if (Route::has('login'))
                 @auth
-                    <a href="{{ url('/home') }}">Home</a>
+                    <a class="col-8" href="{{ url('/home') }}">
+                    <span class="logintitle">HOME</span>
+                </a>
                 @else
+                <span class="col-8 logintitle">LOGIN</span>
                 <div class="formlogin">
                 <form class="formulari" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <label for="email" class="col-md-4 control-label">Email address</label>
+                        <label for="email" class="col-md-5 control-label">Email address</label>
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         @if ($errors->has('email'))
@@ -58,7 +64,7 @@
                         @endif
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="remember" {{ old('remember') ? 'checked' : '' }} id="checkbox">
+                        <input type="checkbox" class="form-check-input" name="remember" {{ old('remember') ? 'checked' : '' }} id="checkbox" style="margin-left:0!important;">
                         <label class="form-check-label" for="exampleCheck1">Remember me</label>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
@@ -67,10 +73,14 @@
             @endauth
             @endif
         </div>
+                </div>
+
+            </div>
+            
         <img class="arrow1" src="{{ asset('images/Arrow1.png') }}">
         <img class="arrow2" src="{{ asset('images/Arrow2.png') }}">
         <p class="ourname">MINIMAL DRAGON COMBAT TRACKER</p>
-        <a href="#statetwooptions"><span></span></a>
+        <a href="#statetwooptions"><span class="flecha"></span></a>
     </section>
 
     <!-- State two -->
