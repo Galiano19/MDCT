@@ -43,4 +43,8 @@ Route::post('/campaigns/join', 'CampaignController@joinCampaign');
 
 Route::get('/campaign/prejoin', 'CampaignController@prejoinCampaign');
 
-Route::get('/encounters/create', 'EncounterController@createEncounter');
+Route::get('/encounters/create/{campid}', 'EncounterController@createEncounter');
+
+Route::post('/encounters/store/{campid}', 'EncounterController@store');
+
+Route::get('/encounters/enter/{encid}', 'EncounterController@enterEncounter');
