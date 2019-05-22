@@ -177,12 +177,12 @@
                 </g>  
             </g>
             </svg>
-</header>
-<div class="container col-12">
-<div class="content">
-            @yield('content')
-            </div>
-</div>
+    </header>
+    <div class="container col-12">
+        <div class="content">
+        @yield('content')
+        </div>
+    </div>
 
 
             <footer>

@@ -259,7 +259,10 @@ a {
 }
 
 .createCharacter label,
-.modifyCharacter label {
+.modifyCharacter label,
+.createCampaign label,
+.joinCampaign,
+label {
     color: darkgoldenrod;
     font-family: 'Times New Roman', Times, serif;
     text-transform: uppercase;
