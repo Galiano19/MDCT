@@ -1,43 +1,113 @@
-<?php
-
-?>
-
-@extends('layouts.app')
+@extends('layouts.lobby')
 
 @section('content')
-<div class="container">
-    <div class="row">
-    
-        
+<div class="modifyCharacter">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="panel-heading text-justify">MODIFY CHARACTER</div>
+        </div>
+        <div class="row justify-content-center">
+            <p class="fancy nickname"><span>{{Auth::user()->nick}}</span></p>
+        </div>
+        <div class="row justify-content-center">   
+            <p class="charactername">{{$character->name}}</p> 
+        </div>
+    </div>
+    <div class="container">
         <form method="POST" action="{{ action('CharacterController@update',['charid' => $character->id]) }}">
+            {{ csrf_field() }}
 
-                    {{ csrf_field() }}
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <h3>Header Stats</h3>
-                    Name<input type="text" name="name" value ="{{$character->name}}" id="name"><br>
-                    AC<input type="number" name="ac" value ="{{$character->ac}}" id="ac"><br>
-                    Class: {{$character->class}}<br>
-                    Level<input type="number" name="level" value ="{{$character->level}}" id="level"><br>
-                    Hit Points<input type="number" name="hitpoints" value ="{{$character->hitpoints}}" id="hitpoints"><br>
-                    <h3>Stats</h3><br>
-                    STRENGTH<input type="number" name="str" value ="{{$character->str}}" id="str"><br>
-                    DEXTERITY<input type="number" name="dex" value ="{{$character->dex}}"  id="dex"><br>
-                    CONSTITUTION<input type="number" name="con" value ="{{$character->con}}" id="con"><br>
-                    INTELLIGENCE<input type="number" name="inte" value ="{{$character->inte}}" id="inte"><br>
-                    WISDOM<input type="number" name="wis" value ="{{$character->wis}}" id="wis"><br>
-                    CHARISMA<input type="number" name="cha" value ="{{$character->cha}}" id="cha"><br>
-                    <h3>Saving Throws</h3><br>
-                    STR<select name="st_str">
+            <div class="row justify-content-center">
+                <h3 class="mt-4">Header Stats</h3>
+            </div>
+            <div class="row justify-content-between">
+                <div class="col-12">
+                    <label class="mt-1" for="name">Character name</label>
+                    <input type="text" class="form-control" name="name" id="name" value ="{{$character->name}}">
+                </div>
+                <div class="col-sm-2">
+                    <label class="mt-1" for="">Armor Class</label>
+                    <input type="text" class="form-control" name="ac" id="ac" value ="{{$character->ac}}">   
+                </div>
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Hit Points</label>
+                    <input type="number" class="form-control" name="hitpoints" id="hitpoints" value ="{{$character->hitpoints}}">
+                </div>   
+                <div class="col-sm-2">
+                    <label class="mt-1" for="">Level</label>
+                    <input type="number" class=" form-control" name="level" id="level" value ="{{$character->level}}">
+                </div> 
+                <div class="col-sm-4">
+                    <label class="mt-1" for="">Class</label>
+                    <select class=" form-control" name="class" value ="{{$character->class}}">
+                        <option value="Rogue">Rogue</option>
+                        <option value="Wizard">Wizard</option>
+                        <option value="Fighter">Fighter</option>
+                        <option value="Warrior">Warrior</option>
+                        <option value="Sorcerer">Sorcerer</option>
+                        <option value="Barbarian">Barbarian</option>
+                        <option value="Mystic">Mystic</option>
+                        <option value="Artificer">Artificer</option>
+                        <option value="Monk">Monk</option>
+                        <option value="Warlock">Warlock</option>
+                        <option value="Bard">Bard</option>
+                        <option value="Ranger">Ranger</option>
+                        <option value="Cleric">Cleric</option>
+                        <option value="Druid">Druid</option>
+                        <option value="Paladin">Paladin</option>
+                    </select>
+                </div>         
+            </div>           
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <h3 class="mt-4">Stats</h3>
+            </div>
+            <div class="row flex-wrap justify-content-between">
+                <div class=" col-sm-2 ">
+                    <label class="mt-1" for="">STRENGTH</label>
+                    <input type="number" name="str" id="str" class="form-control" value ="{{$character->str}}">
+                </div> 
+                <div class=" col-sm-2 ">
+                    <label class="mt-1" for="">DEXTERITY</label>
+                    <input type="number" name="dex" id="dex" class="form-control"  value ="{{$character->dex}}">
+                </div> 
+                <div class=" col-sm-2 ">
+                    <label class="mt-1" for="">CONSTITUTION</label>
+                    <input type="number" name="con" id="con" class="form-control" value ="{{$character->con}}">
+                </div> 
+                <div class=" col-sm-2 ">
+                    <label class="mt-1" for="">INTELLIGENCE</label>
+                    <input type="number" name="inte" id="inte" class="form-control" value ="{{$character->inte}}">
+                </div> 
+                <div class=" col-sm-2 ">
+                    <label class="mt-1" for="">WISDOM</label>
+                    <input type="number" name="wis" id="wis" class="form-control" value ="{{$character->wis}}">
+                </div> 
+                <div class=" col-sm-2 ">
+                    <label class="mt-1" for="">CHARISMA</label>
+                    <input type="number" name="cha" id="cha" class="form-control" value ="{{$character->cha}}">
+                </div> 
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <h3 class="mt-4">Saving Throws</h3>
+            </div>
+            <div class="row flex-wrap justify-content-between">
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">STRENGTH</label>
+                    <select name="st_str" class="form-control">
                         @if ($character->st_str==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
@@ -45,54 +115,78 @@
                             <option value="0">None</option>
                             <option value="1" selected>Proficency</option>
                         @endif
-                    </select><br>
-                    DEX<select name="st_dex">
-                    @if ($character->st_dex==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">DEXTERITY</label>
+                    <select name="st_dex" class="form-control">
+                        @if ($character->st_dex==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                         @else
                             <option value="0">None</option>
                             <option value="1" selected>Proficency</option>
                         @endif
-                    </select><br>
-                    CON<select name="st_con">
-                    @if ($character->st_con==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">CONSTITUTION</label>
+                    <select name="st_con" class="form-control" >
+                        @if ($character->st_con==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                         @else
                             <option value="0">None</option>
                             <option value="1" selected>Proficency</option>
                         @endif
-                    </select><br>
-                    INT<select name="st_inte">
-                    @if ($character->st_inte==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">INTELLIGENCE</label>
+                    <select name="st_inte" class="form-control" >
+                        @if ($character->st_inte==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                         @else
                             <option value="0">None</option>
                             <option value="1" selected>Proficency</option>
                         @endif
-                    </select><br>
-                    WIS<select name="st_wis">
-                    @if ($character->st_wis==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">WISDOM</label>
+                    <select name="st_wis" class="form-control" >
+                        @if ($character->st_wis==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                         @else
                             <option value="0">None</option>
                             <option value="1" selected>Proficency</option>
                         @endif
-                    </select><br>
-                    CHA<select name="st_cha">
-                    @if ($character->st_cha==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">CHARISMA</label>
+                    <select name="st_cha" class="form-control" >
+                        @if ($character->st_cha==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                         @else
                             <option value="0">None</option>
                             <option value="1" selected>Proficency</option>
                         @endif
-                    </select><br>
-                    <h3>Skills</h3><br>
-                    Acrobatics<select name="acrobatics">
+                    </select>
+                </div> 
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <h3 class="mt-4" >Skills</h3>
+            </div>
+            <div class="row justify-content-between">
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Acrobatics</label>
+                    <select name="acrobatics" class="form-control" placeholder="Acrobatics">
                         @if ($character->acrobatics==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
@@ -106,9 +200,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Animal Handling<select name="animalhan">
-                    @if ($character->animalhan==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Animal Handling</label>
+                    <select name="animalhan" class="form-control" placeholder="Animal Handling">
+                        @if ($character->animalhan==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -121,9 +218,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Arcana<select name="arcana">
-                    @if ($character->arcana==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Arcana</label>
+                    <select name="arcana" class="form-control" placeholder="Arcana">
+                        @if ($character->arcana==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -136,9 +236,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Athletics<select name="athletics">
-                    @if ($character->athletics==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Athletics</label>
+                    <select name="athletics" class="form-control" placeholder="Athletics">
+                        @if ($character->athletics==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -151,9 +254,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Deception<select name="deception">
-                    @if ($character->deception==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Deception</label>
+                    <select name="deception" class="form-control" placeholder="Deception">
+                        @if ($character->deception==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -166,9 +272,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    History<select name="history">
-                    @if ($character->history==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">History</label>
+                    <select name="history" class="form-control" placeholder="History">
+                        @if ($character->history==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -181,9 +290,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Insight<select name="insight">
-                    @if ($character->insight==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Insight</label>
+                    <select name="insight" class="form-control" placeholder="Insight">
+                        @if ($character->insight==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -196,9 +308,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Intimidation<select name="intimidation">
-                    @if ($character->intimidation==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Intimidation</label>
+                    <select name="intimidation" class="form-control" placeholder="Intimidation">
+                        @if ($character->intimidation==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -211,9 +326,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Investigation<select name="investigation">
-                    @if ($character->investigation==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Investigation</label>
+                    <select name="investigation" class="form-control" placeholder="Investigation">
+                        @if ($character->investigation==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -226,9 +344,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Medicine<select name="medicine">
-                    @if ($character->medicine==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Medicine</label>
+                    <select name="medicine" class="form-control" placeholder="Medicine">
+                        @if ($character->medicine==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -241,9 +362,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Nature<select name="nature">
-                    @if ($character->nature==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Nature</label>
+                    <select name="nature" class="form-control" placeholder="Nature">
+                        @if ($character->nature==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -256,9 +380,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Perception<select name="perception">
-                    @if ($character->perception==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Perception</label>
+                    <select name="perception" class="form-control" placeholder="Perception">
+                        @if ($character->perception==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -271,9 +398,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Performance<select name="performance">
-                    @if ($character->performance==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Performance</label>
+                    <select name="performance" class="form-control" placeholder="Performance">
+                        @if ($character->performance==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -286,9 +416,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Persuasion<select name="persuasion">
-                    @if ($character->persuasion==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Persuasion</label>
+                    <select name="persuasion" class="form-control" placeholder="Persuasion">
+                        @if ($character->persuasion==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -301,9 +434,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Religion<select name="religion">
-                    @if ($character->religion==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Religion</label>
+                    <select name="religion" class="form-control" placeholder="Religion">
+                        @if ($character->religion==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -316,9 +452,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Sleight of Hand<select name="soh">
-                    @if ($character->soh==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Sleight of Hand</label>
+                    <select name="soh" class="form-control" placeholder="Sleight of Hand">
+                        @if ($character->soh==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -331,9 +470,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Stealth<select name="stealth">
-                    @if ($character->stealth==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Stealth</label>
+                    <select name="stealth" class="form-control" placeholder="Stealth">
+                        @if ($character->stealth==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -346,9 +488,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Survival<select name="survival">
-                    @if ($character->survival==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1"for="">Survival</label>
+                    <select name="survival" class="form-control" placeholder="Survival">
+                        @if ($character->survival==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -361,9 +506,12 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    Insight<select name="insight">
-                    @if ($character->insight==0)
+                    </select>
+                </div> 
+                <div class="col-sm-2 ">
+                    <label class="mt-1" for="">Insight</label>
+                    <select name="insight" class="form-control" placeholder="Insight">
+                        @if ($character->insight==0)
                             <option value="0" selected>None</option>
                             <option value="1">Proficency</option>
                             <option value="2">Expertise</option>
@@ -376,114 +524,136 @@
                             <option value="1">Proficency</option>
                             <option value="2" selected>Expertise</option>
                         @endif
-                    </select><br>
-                    <h3>Color</h3><br>
-                    Select a color for the background color of your character sheet in Encounters!<br>
-                    Color<select name="color">
-                        @if ($character->color==0)
-                            <option value="0" selected>Red</option>
-                            <option value="1">Yellow</option>
-                            <option value="2">Orange</option>
-                            <option value="3">Green</option>
-                            <option value="4">Blue</option>
-                            <option value="5">Pink</option>
-                            <option value="6">Violet</option>
-                            <option value="7">White</option>
-                            <option value="8">Black</option>
-                        @elseif($character->color==1)
-                            <option value="0">Red</option>
-                            <option value="1"selected>Yellow</option>
-                            <option value="2">Orange</option>
-                            <option value="3">Green</option>
-                            <option value="4">Blue</option>
-                            <option value="5">Pink</option>
-                            <option value="6">Violet</option>
-                            <option value="7">White</option>
-                            <option value="8">Black</option>
-                        @elseif($character->color==2)
-                            <option value="0">Red</option>
-                            <option value="1">Yellow</option>
-                            <option value="2"selected>Orange</option>
-                            <option value="3">Green</option>
-                            <option value="4">Blue</option>
-                            <option value="5">Pink</option>
-                            <option value="6">Violet</option>
-                            <option value="7">White</option>
-                            <option value="8">Black</option>
-                        @elseif($character->color==3)
-                            <option value="0">Red</option>
-                            <option value="1">Yellow</option>
-                            <option value="2">Orange</option>
-                            <option value="3"selected>Green</option>
-                            <option value="4">Blue</option>
-                            <option value="5">Pink</option>
-                            <option value="6">Violet</option>
-                            <option value="7">White</option>
-                            <option value="8">Black</option>
-                        @elseif($character->color==4)
-                            <option value="0">Red</option>
-                            <option value="1">Yellow</option>
-                            <option value="2">Orange</option>
-                            <option value="3">Green</option>
-                            <option value="4"selected>Blue</option>
-                            <option value="5">Pink</option>
-                            <option value="6">Violet</option>
-                            <option value="7">White</option>
-                            <option value="8">Black</option>
-                        @elseif($character->color==5)
-                            <option value="0">Red</option>
-                            <option value="1">Yellow</option>
-                            <option value="2">Orange</option>
-                            <option value="3">Green</option>
-                            <option value="4">Blue</option>
-                            <option value="5"selected>Pink</option>
-                            <option value="6">Violet</option>
-                            <option value="7">White</option>
-                            <option value="8">Black</option>
-                        @elseif($character->color==6)
-                            <option value="0">Red</option>
-                            <option value="1">Yellow</option>
-                            <option value="2">Orange</option>
-                            <option value="3">Green</option>
-                            <option value="4">Blue</option>
-                            <option value="5">Pink</option>
-                            <option value="6"selected>Violet</option>
-                            <option value="7">White</option>
-                            <option value="8">Black</option>
-                        @elseif($character->color==7)
-                            <option value="0">Red</option>
-                            <option value="1">Yellow</option>
-                            <option value="2">Orange</option>
-                            <option value="3">Green</option>
-                            <option value="4">Blue</option>
-                            <option value="5">Pink</option>
-                            <option value="6">Violet</option>
-                            <option value="7"selected>White</option>
-                            <option value="8">Black</option>
-                        @else
-                            <option value="0">Red</option>
-                            <option value="1">Yellow</option>
-                            <option value="2">Orange</option>
-                            <option value="3">Green</option>
-                            <option value="4">Blue</option>
-                            <option value="5">Pink</option>
-                            <option value="6">Violet</option>
-                            <option value="7">White</option>
-                            <option value="8"selected>Black</option>
-                        @endif
-                    </select><br>
-
-                    <h3>Backstory</h3><br>
-                    Insert a bit of backstory:<br>
-                    <textarea name="back">
-                    {{$character->back}}
-                    </textarea><br>
-
-                    <button type="submit" class="btn btn-primary">
-                        Create Character
-                    </button>
-
-                    </form>
-                    
+                    </select>
+                </div>      
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <h3 class="mt-4">Color</h3>
+            </div>
+            <div class="row justify-content-center">
+                <p class="col-8">Select a color for the background color of your character sheet in Encounters!</p>
+            </div>
+            <div class="row flex-wrap justify-content-center">
+                <select name="color" class="col-8 form-control" placeholder="COLOR">
+                    @if ($character->color==0)
+                        <option value="0" selected>Red</option>
+                        <option value="1">Yellow</option>
+                        <option value="2">Orange</option>
+                        <option value="3">Green</option>
+                        <option value="4">Blue</option>
+                        <option value="5">Pink</option>
+                        <option value="6">Violet</option>
+                        <option value="7">White</option>
+                        <option value="8">Black</option>
+                    @elseif($character->color==1)
+                        <option value="0">Red</option>
+                        <option value="1"selected>Yellow</option>
+                        <option value="2">Orange</option>
+                        <option value="3">Green</option>
+                        <option value="4">Blue</option>
+                        <option value="5">Pink</option>
+                        <option value="6">Violet</option>
+                        <option value="7">White</option>
+                        <option value="8">Black</option>
+                    @elseif($character->color==2)
+                        <option value="0">Red</option>
+                        <option value="1">Yellow</option>
+                        <option value="2"selected>Orange</option>
+                        <option value="3">Green</option>
+                        <option value="4">Blue</option>
+                        <option value="5">Pink</option>
+                        <option value="6">Violet</option>
+                        <option value="7">White</option>
+                        <option value="8">Black</option>
+                    @elseif($character->color==3)
+                        <option value="0">Red</option>
+                        <option value="1">Yellow</option>
+                        <option value="2">Orange</option>
+                        <option value="3"selected>Green</option>
+                        <option value="4">Blue</option>
+                        <option value="5">Pink</option>
+                        <option value="6">Violet</option>
+                        <option value="7">White</option>
+                        <option value="8">Black</option>
+                    @elseif($character->color==4)
+                        <option value="0">Red</option>
+                        <option value="1">Yellow</option>
+                        <option value="2">Orange</option>
+                        <option value="3">Green</option>
+                        <option value="4"selected>Blue</option>
+                        <option value="5">Pink</option>
+                        <option value="6">Violet</option>
+                        <option value="7">White</option>
+                        <option value="8">Black</option>
+                    @elseif($character->color==5)
+                        <option value="0">Red</option>
+                        <option value="1">Yellow</option>
+                        <option value="2">Orange</option>
+                        <option value="3">Green</option>
+                        <option value="4">Blue</option>
+                        <option value="5"selected>Pink</option>
+                        <option value="6">Violet</option>
+                        <option value="7">White</option>
+                        <option value="8">Black</option>
+                    @elseif($character->color==6)
+                        <option value="0">Red</option>
+                        <option value="1">Yellow</option>
+                        <option value="2">Orange</option>
+                        <option value="3">Green</option>
+                        <option value="4">Blue</option>
+                        <option value="5">Pink</option>
+                        <option value="6"selected>Violet</option>
+                        <option value="7">White</option>
+                        <option value="8">Black</option>
+                    @elseif($character->color==7)
+                        <option value="0">Red</option>
+                        <option value="1">Yellow</option>
+                        <option value="2">Orange</option>
+                        <option value="3">Green</option>
+                        <option value="4">Blue</option>
+                        <option value="5">Pink</option>
+                        <option value="6">Violet</option>
+                        <option value="7"selected>White</option>
+                        <option value="8">Black</option>
+                    @else
+                        <option value="0">Red</option>
+                        <option value="1">Yellow</option>
+                        <option value="2">Orange</option>
+                        <option value="3">Green</option>
+                        <option value="4">Blue</option>
+                        <option value="5">Pink</option>
+                        <option value="6">Violet</option>
+                        <option value="7">White</option>
+                        <option value="8"selected>Black</option>
+                    @endif
+                </select>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <h3 class="mt-4">Backstory</h3>
+            </div>
+            <div class="row justify-content-center">
+                <p>Insert a bit of backstory</p>
+            </div>
+            <div class="row flex-wrap justify-content-center">
+                <textarea name="back" class="col-8 form-control">{{$character->back}}</textarea>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <button type="submit" class="btn btn-dark btn-lg buttonselect mt-4 mb-4">Modify Character</button>
+            </div>
+        </div>
+    </form>
+    <div class="container">
+        <div class="row justify-content-center mb-4" style="margin-bottom:2em;">
+            <a  class="btn btn-dark btn-lg buttonselect" href="{{ action('CharacterController@indexCharacters') }}" role="button">
+                BACK
+            </a>
+        </div>
+    </div>
 </div>
 @endsection

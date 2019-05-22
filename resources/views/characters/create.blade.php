@@ -9,6 +9,7 @@
         </div>
     </div>
 
+    <div class="container">
     <form method="POST" action="{{ action('CharacterController@store') }}">
         {{ csrf_field() }}
         @if ($errors->any())
@@ -20,8 +21,6 @@
             </ul>
         </div>
         @endif
-
-        <div class="container">
             <div class="row justify-content-center">
                 <h3 class="mt-4">Header Stats</h3>
             </div>

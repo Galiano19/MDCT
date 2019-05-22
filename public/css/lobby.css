@@ -9,6 +9,7 @@ body {
     height: 100%;
     background: url(../images/landing/background.jpg) center center / cover no-repeat;
     overflow-x: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 
@@ -250,22 +251,30 @@ a {
     text-transform: uppercase;
 }
 
-.createCharacter h3 {
+.createCharacter h3,
+.modifyCharacter h3 {
     color: white;
     font-family: 'Times New Roman', Times, serif;
     text-transform: uppercase;
 }
 
-.createCharacter label {
+.createCharacter label,
+.modifyCharacter label {
     color: darkgoldenrod;
     font-family: 'Times New Roman', Times, serif;
     text-transform: uppercase;
 }
 
-.createCharacter p {
+.createCharacter p,
+.modifyCharacter p {
     color: darkgoldenrod;
     font-family: 'Times New Roman', Times, serif;
     text-transform: uppercase;
+}
+
+.modifyCharacter .charactername {
+    color: white;
+    margin-top: 3%;
 }
 
 

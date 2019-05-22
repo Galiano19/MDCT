@@ -31,8 +31,8 @@
     <nav id="side-nav" >
         <img src="{{ asset('images/logo.png') }}" alt="MDCT" class="logonav">
         <ul class="optionsnav">
-            <li><a href="#">CHARACTERS</a></li>
-            <li><a href="#">CAMPAIGNS</a></li>
+            <li><a href="{{ action('CharacterController@indexCharacters') }}">CHARACTERS</a></li>
+            <li><a href="{{ action('CampaignController@indexCampaigns') }}">CAMPAIGNS</a></li>
         </ul>
         <a href="#"><i class="material-icons navBtn">more_vert</i></a>
     </nav>
@@ -52,8 +52,8 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="#">CHARACTERS</a></li>
-                <li><a href="#">CAMPAIGNS</a></li>
+                <li><a href="{{ action('CharacterController@indexCharacters') }}">CHARACTERS</a></li>
+                <li><a href="{{ action('CampaignController@indexCampaigns') }}">CAMPAIGNS</a></li>
             </ul>
         </div>
     </div>
@@ -178,9 +178,12 @@
             </g>
             </svg>
 </header>
+<div class="container col-12">
 <div class="content">
             @yield('content')
             </div>
+</div>
+
 
             <footer>
                 <!-- Jquery navside-->
