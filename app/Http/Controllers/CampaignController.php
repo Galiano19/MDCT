@@ -98,6 +98,7 @@ class CampaignController extends Controller{
         ->select('encounters.name', 'encounters.id')
         ->get();
 
+
         $usercheck = DB::table('campaigns')
         ->join('roles','roles.campaign_id', '=', 'id')
         ->join('users','users.id', '=', 'roles.user_id')

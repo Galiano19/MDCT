@@ -48,3 +48,7 @@ Route::get('/encounters/create/{campid}', 'EncounterController@createEncounter')
 Route::post('/encounters/store/{campid}', 'EncounterController@store');
 
 Route::get('/encounters/enter/{encid}', 'EncounterController@enterEncounter');
+
+Route::get('/encounters/selectCharacter/{encid}', 'EncounterController@enterPlayerEncounter');
+
+Route::post('/encounters/insertCharacter/{encid}', 'EncounterController@insertCharacter');

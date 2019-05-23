@@ -40,7 +40,17 @@ Campaign Description: {{$campaign->description}}<br>
             <div class="col-sm-6">Enter Encounter</div>
             @foreach ($encounters as $encounter)
                         <div class="col-sm-6">{{$encounter->name}}</div>
-                        <div class="col-sm-6"><a href="{{action('EncounterController@enterEncounter',['encid' =>  $encounter->id])}}">Enter</a></div>
+                        @foreach ($roleuser as $role)
+                                @if ($role->role == 0)
+                                    <div class="col-sm-6"><a href="{{action('EncounterController@enterEncounter',['encid' =>  $encounter->id])}}">Enter as Master</a></div>
+                                @else
+                                    <div class="col-sm-6"><a href="{{action('EncounterController@enterPlayerEncounter',['encid' =>  $encounter->id])}}">Enter as Player</a></div>
+                                @endif
+                            <div class="md-12">
+                                
+                            </div>
+                        @endforeach 
+                        
                 <div class="md-12">
                     
                 </div>

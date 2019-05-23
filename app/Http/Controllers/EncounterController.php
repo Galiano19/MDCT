@@ -9,6 +9,8 @@ use App\Character;
 use App\Campaign;
 use App\Role;
 use App\Encounter;
+use App\Log;
+use App\State;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -61,7 +63,16 @@ class EncounterController extends Controller{
             $encounter->opt_abilities = $request->input('opt_abilities');
             $encounter->campaign_id = $campid;
             $encounter->save();
-            
+
+            $encountname = DB::table('encounters')
+            ->where('encounters.name', '=', $encounter->name)
+            ->where('encounters.campaign_id', '=', $campid)
+            ->first();
+
+            $log = new Log;
+            $log->encounter_id = $encounter->id;
+            $log->save();
+
             return back();
         }else{
             return view('welcome');
@@ -97,6 +108,96 @@ class EncounterController extends Controller{
         }else{
             return view('welcome');
         }
+    }
+
+    public function enterPlayerEncounter($encid){
+            
+        if(Auth::check()){
+            $id =\Auth::user()->id;
+
+            $encounters = DB::table('encounters')
+            ->where('encounters.id', '=', $encid)
+            ->first();
+
+            $log = DB::table('logs')
+            ->where('logs.encounter_id', '=', $encid)
+            ->first();
+            
+            $usercheck = DB::table('campaigns')
+            ->join('roles','roles.campaign_id', '=', 'id')
+            ->join('users','users.id', '=', 'roles.user_id')
+            ->where('users.id', '=', $id)
+            ->where('campaigns.id', '=', $encounters->campaign_id)
+            ->first();
+
+            $characters = DB::table('characters')
+            ->join('users','users.id', '=', 'user_id')
+            ->where('users.id', '=', $id)
+            ->get();
+
+            $stopit = 0;
+
+            foreach($characters as $character){
+                $states = DB::table('states')
+                ->join('characters','characters.id', '=', 'states.character_id')
+                ->join('logs','logs.id', '=', 'states.log_id')
+                ->where('logs.id', '=', $log->id)
+                ->where('characters.id', '=', $character->id)
+                ->first();
+
+                if($states!=null||$stopit==1){
+                    $stopit = 1;
+                }
+            }
+
+    
+            if($usercheck==null){
+                
+                return redirect()->action('CampaignController@indexCampaigns');
+
+            }else{
+                if($stopit==1){
+                    return view('encounters.encounter', compact('encounters'));
+                }else{
+                    return view('encounters.selectCharacter', compact('encounters','characters','encid'));
+                }
+                
+            }
+
+
+            
+        }else{
+            return view('welcome');
+        }
+    }
+
+    public function insertCharacter(Request $request, $encid){
+
+        if(Auth::check()){
+
+            $logs = DB::table('logs')
+            ->where('logs.encounter_id', '=', $encid)
+            ->first();
+
+            $character = DB::table('characters')
+            ->where('characters.id', '=', $request->input('name'))
+            ->first();
+            
+            $state = new State;
+
+            $state->character_id = $request->input('name');
+            $state->log_id = $logs->id;
+            $state->hitpoints = $character->hitpoints;
+            $state->save();
+
+            
+
+            return back();
+        }else{
+            return view('welcome');
+        }
+
+        
     }
 
 }
