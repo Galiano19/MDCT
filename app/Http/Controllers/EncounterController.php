@@ -130,6 +130,8 @@ class EncounterController extends Controller{
             ->where('campaigns.id', '=', $encounters->campaign_id)
             ->first();
 
+            
+
             $characters = DB::table('characters')
             ->join('users','users.id', '=', 'user_id')
             ->where('users.id', '=', $id)
@@ -150,6 +152,47 @@ class EncounterController extends Controller{
                 }
             }
 
+            $usersencs = DB::table('users')
+            ->join('roles','roles.user_id', '=', 'users.id')
+            ->join('campaigns','campaigns.id', '=', 'roles.campaign_id')
+            ->where('campaigns.id', '=', $encounters->campaign_id)
+            ->select('users.id')
+            ->get();
+
+            $charasinenc = collect();
+            $charaget = collect();
+
+            $usercount = 0;
+            
+            foreach($usersencs as $userenc){
+                $stopit2 = 0;
+                $charas = DB::table('characters')
+                ->join('users','users.id', '=', 'user_id')
+                ->where('users.id', '=', $userenc->id)
+                ->get();
+                
+                foreach($charas as $chara){
+
+                    if($stopit2==0){
+                        $statechara = DB::table('states')
+                        ->join('characters','characters.id', '=', 'states.character_id')
+                        ->join('logs','logs.id', '=', 'states.log_id')
+                        ->where('logs.id', '=', $log->id)
+                        ->where('characters.id', '=', $chara->id)
+                        ->first();
+                    }
+
+                    
+                    
+                    if($statechara!=null){
+                        $stopit2 = 1;
+                        $usercount+=1;
+                        $charasinenc->push($charaget);
+                    }
+
+                }
+            }
+
     
             if($usercheck==null){
                 
@@ -157,7 +200,10 @@ class EncounterController extends Controller{
 
             }else{
                 if($stopit==1){
-                    return view('encounters.encounter', compact('encounters'));
+
+
+
+                    return view('encounters.encounter', compact('encounters','charasinenc','usercount'));
                 }else{
                     return view('encounters.selectCharacter', compact('encounters','characters','encid'));
                 }

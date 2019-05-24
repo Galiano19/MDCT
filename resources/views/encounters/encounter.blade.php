@@ -3,13 +3,15 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        {{$encounters->name}}
+        {{$encounters->name}}<br>{{$usercount}}
         <div class="col-sm-5 monsters" id="monsters">
 
         </div>
         <div class="col-sm-5 characters" id="characters">
             <div class="row">
-                
+            @foreach ($charasinenc as $chara)
+                {{$chara->name}}<br>
+            @endforeach
             </div>
         </div>
         <div class="col-sm-2 log" id="log">
