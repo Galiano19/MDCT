@@ -97,6 +97,7 @@ a {
 .navsmall {
     z-index: 99;
     display: none;
+    margin-bottom: 0px;
 }
 
 

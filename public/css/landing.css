@@ -233,12 +233,6 @@ a {
     background-color: transparent !important;
 }
 
-.form-control {
-    background-color: #504b0c !important;
-    opacity: 0.3;
-    color: #e6e6e6 !important;
-}
-
 .form-control:hover {
     opacity: 0.7;
 }
@@ -253,6 +247,149 @@ a {
     border: none !important;
     color: white !important;
 }
+
+
+/*lobby template*/
+
+.fancy {
+    line-height: 0.5;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.fancy span {
+    display: inline-block;
+    position: relative;
+    text-align: center !important;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+    letter-spacing: 0.5em;
+    padding-left: 0.5em;
+    color: white !important;
+    text-transform: uppercase;
+}
+
+.fancy span:before,
+.fancy span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    top: 0;
+    width: 15em;
+    max-width: 15em;
+}
+
+.fancy span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.fancy span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+
+/*home*/
+
+.home {
+    margin-top: -3%!important;
+}
+
+.characterbanner,
+.campaignbanner {
+    position: relative;
+    height: 35vh;
+    padding-top: 3%;
+    box-shadow: 0px 4px 7px grey;
+}
+
+.characterbanner h2,
+.campaignbanner h2 {
+    font-size: 2em;
+    color: white;
+    letter-spacing: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 6s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 6s;
+}
+
+.characterbanner .hr {
+    color: #fff;
+    background: #fff;
+    width: 10%;
+    height: 1px;
+    margin-left: 15%;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 7s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 7s;
+}
+
+.campaignbanner .hr {
+    color: #fff;
+    background: #fff;
+    width: 10%;
+    height: 1px;
+    margin-left: 75%;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 7s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 7s;
+}
+
+.characterbanner span {
+    color: #fff;
+    font-size: 1em;
+    margin-left: 20%;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 8s;
+}
+
+.campaignbanner span {
+    color: #fff;
+    margin-left: 65%;
+    font-size: 1em;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 8s;
+}
+
+.characterbanner {
+    background: url(../images/charactersbanner.jpg) center center / cover no-repeat
+}
+
+.characterbanner .charactertitle {
+    padding-left: 10%;
+}
+
+.campaignbanner {
+    background: url(../images/campaignsbanner.jpg) center center / cover no-repeat
+}
+
+.campaignbanner .campaigntitle {
+    padding-right: 11%;
+}
+
+
+/*Querys*/
 
 @media (max-width: 990px) {
     #side-nav {

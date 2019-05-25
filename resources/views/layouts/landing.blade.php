@@ -44,7 +44,7 @@
             <li><a href="#">WHAT'S MDCT</a></li>
             <li><a href="#">UPDATES</a></li>
             <li><a href="/login">LOGIN</a></li>
-            <li><a href="#">GET STARTED</a></li>
+            <li><a href="/register">GET STARTED</a></li>
         </ul>
         <a href="#"><i class="material-icons navBtn">more_vert</i></a>
         </nav>
@@ -64,10 +64,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">WHAT'S MDCT</a></li>
+                    <li><a href="#">WHAT'S MDCT</a></li>
                     <li><a href="#">UPDATES</a></li>
                     <li><a href="/login">LOGIN</a></li> 
-                    <li><a href="#">GET STARTED</a></li> 
+                    <li><a href="/register">GET STARTED</a></li> 
                 </ul>
                 </div>
             </div>
@@ -209,11 +209,21 @@
                                     
                                     $idpage= $_SERVER['REQUEST_URI'];
                                     if ($idpage == "/login") {
-                                        $quote = array('Welcome back<br>Your heroes were waiting for you...', 'Welcome back<br>This place hasn\'t been the same without you...', 'Our alliance is inseparable...');
+                                        $quote = array('Welcome back<br>Your heroes were waiting for you...', 
+                                        'Welcome back<br>This place hasn\'t been the same without you...', 
+                                        'Our alliance is inseparable...');
                                         $i = rand(0, count($quote)-1); 
                                         $selected = "$quote[$i]";
                                         echo $selected ;
-                                    }    
+                                    }
+                                    if ($idpage == "/register") {
+                                        $quote = array('Here is where your journey begins...', 
+                                        'We are Minimal Dragon Combat Tracker<br>Very nice to meet you', 
+                                        'Your heroes are waiting to born...');
+                                        $i = rand(0, count($quote)-1); 
+                                        $selected = "$quote[$i]";
+                                        echo $selected ;
+                                    }      
                                 ?>
                             </span>
                         </div>

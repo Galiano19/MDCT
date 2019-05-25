@@ -100,7 +100,7 @@
                     <h2 class="">GET STARTED</h2>
                     <div class="hr justify-content-center text-center center-block"></div>
                     <p class="mt-4 ml-5 mr-5">Have you decided to join us? Congrats!<br> You're just few steps away from manage your heroes and games</p>
-                    <a name="" id="" class="btn button " href="#" role="button">REGISTER</a>
+                    <a name="" id="" class="btn button " href="/register" role="button">REGISTER</a>
                 </div>
             </div>
         </div>
@@ -124,8 +124,8 @@
             <div class="col-4 align-self-center">
                 <ul>
                     <li><a href="#">About us</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
                     <li><a href="#">Updates</a></li>
                 </ul>
             </div>
