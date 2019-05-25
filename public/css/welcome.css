@@ -7,163 +7,105 @@
 html,
 body {
     height: 100%;
-    background-color: #242422;
+    background-color: rgb(238, 237, 237);
     overflow-x: hidden;
 }
 
 
 /*first state***********************************************************************************************************/
 
-section {
+.sliderhome {
     position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-section::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    content: '';
-    width: 100%;
-    height: 80%;
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .8) 80%, rgba(0, 0, 0, .8) 100%);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .8) 80%, rgba(0, 0, 0, .8) 100%);
-}
-
-#section01 {
-    -webkit-animation: background 30s cubic-bezier(1, 0, 0, 1) infinite;
-    animation: background 30s cubic-bezier(1, 0, 0, 1) infinite;
-    background-size: cover;
-}
-
-#section01 {
+    width: 100vw;
+    height: 100vh;
     background: url(../images/HEADER.jpg) center center / cover no-repeat
 }
 
-.demo a {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    z-index: 2;
-    display: inline-block;
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    color: #fff;
-    font: normal 400 20px/1 'Josefin Sans', sans-serif;
-    letter-spacing: .1em;
-    text-decoration: none;
-    transition: opacity .3s;
-}
-
-.demo a:hover {
-    opacity: .5;
-}
-
-#section01 a {
-    padding-top: 60px;
-}
-
-#section01 a .flecha {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 24px;
-    height: 24px;
-    margin-left: -12px;
-    border-left: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    box-sizing: border-box;
-}
-
-.arrow1 {
-    position: absolute;
-    margin-top: 15%;
-    margin-left: -10%;
-    opacity: 0.5;
-    overflow: hidden;
-    -webkit-animation-name: arrow1;
-    /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s;
-    /* Safari 4.0 - 8.0 */
-    animation-name: arrow1;
-    animation-duration: 2s;
-}
-
-
-/* Safari 4.0 - 8.0 */
-
-@-webkit-keyframes arrow1 {
-    0% {
-        margin-left: -30%;
-    }
-    100% {
-        margin-left: -10%;
-    }
-}
-
-
-/* Standard syntax */
-
-@keyframes arrow1 {
-    0% {
-        margin-left: -30%;
-    }
-    100% {
-        margin-left: -10%;
-    }
-}
-
-.arrow2 {
-    position: absolute;
-    margin-left: 65%;
-    opacity: .5;
-    overflow: hidden;
-    -webkit-animation-name: arrow2;
-    /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s;
-    /* Safari 4.0 - 8.0 */
-    animation-name: arrow2;
-    animation-duration: 2s;
-}
-
-
-/* Safari 4.0 - 8.0 */
-
-@-webkit-keyframes arrow2 {
-    0% {
-        margin-left: 85%;
-    }
-    100% {
-        margin-left: 65%;
-    }
-}
-
-
-/* Standard syntax */
-
-@keyframes arrow2 {
-    0% {
-        margin-left: 85%;
-    }
-    100% {
-        margin-left: 65%;
-    }
-}
-
-.ourname {
-    color: #fff;
-    position: absolute;
-    top: 75%;
-    left: 36%;
+.sliderhome .logo img,
+.logofooter {
+    height: 200px;
+    width: auto;
     -webkit-animation-name: ourname;
     /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 4s;
     /* Safari 4.0 - 8.0 */
     animation-name: ourname;
-    animation-duration: 2s;
+    animation-duration: 4s;
+}
+
+.sliderhome .elements {
+    padding-top: 16%;
+}
+
+.frontslider {
+    width: 100vw;
+    height: 100vh;
+}
+
+.frontslider .title {
+    margin-top: 20%;
+}
+
+.quoteslider {
+    color: white;
+    font-size: 2em;
+    font-style: italic;
+    font-weight: 100;
+    letter-spacing: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 12%;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 4s;
+}
+
+.sliderhome .flechita {
+    z-index: 2;
+    display: inline-block;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 1;
+    margin-top: 2%;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 4s;
+}
+
+.sliderhome .flechita i {
+    font-size: 40px
+}
+
+.sliderhome .flechita:hover {
+    opacity: .5;
+}
+
+.sliderhome .logo img {
+    height: 200px;
+    width: auto;
+}
+
+#sliderhome .flechita {
+    padding-top: 60px;
+}
+
+.ourname {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 600;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 4s;
     letter-spacing: 8px;
 }
 
@@ -172,7 +114,7 @@ section::after {
 
 @-webkit-keyframes ourname {
     0% {
-        opacity: .5;
+        opacity: 0;
     }
     100% {
         opacity: 1;
@@ -184,39 +126,29 @@ section::after {
 
 @keyframes ourname {
     0% {
-        opacity: .5;
+        opacity: 0;
     }
     100% {
         opacity: 1;
     }
 }
 
-.loginarea {
-    position: absolute;
-    background-color: #39331d;
-    height: 10%;
-    width: 18%;
-    top: 8%;
-    left: 5%;
-    border-radius: 12px;
-}
-
 .logo_login {
-    color: rgb(121, 115, 60);
-    font-size: 5em;
-    margin-top: 3%;
+    color: rgba(0, 0, 0, 0.486);
+    font-size: 2em;
+    top: 1%;
 }
 
 .logintitle {
-    position: relative;
-    font-size: 2.5em;
-    left: 10%;
-    margin-top: 6%;
-    color: white;
-    opacity: 0.3;
-    text-align: center;
+    font-size: 1em;
+    color: rgb(24, 23, 23);
     letter-spacing: 4px;
-    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.logintitle:hover {
+    text-decoration: none;
 }
 
 
@@ -226,11 +158,14 @@ section::after {
     position: absolute;
     background-color: #534b2b;
     opacity: 0;
-    height: 358%;
-    width: 180%;
     top: -5%;
     border-radius: 12px;
     z-index: 1;
+    width: 400px !important;
+}
+
+.formlogin button {
+    z-index: 999;
 }
 
 .formlogin:hover {
@@ -247,272 +182,145 @@ section::after {
 /* second state ************************************************************************************************************************************************/
 
 .statetwooptions {
-    margin-top: 20%;
-    margin-bottom: 20%;
+    width: 90%!important;
 }
 
-.option {
-    position: relative;
-    overflow: hidden;
-    max-width: 100%;
-    max-height: 110%;
-    width: 25%;
-    background-color: transparent;
-    color: #ffffff;
-    text-align: center;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all 0.6s ease;
-    transition: all 0.6s ease;
+.quoteblock {
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
-.option :after {
-    background: #fff;
-    width: 0;
-    height: 6px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    content: '';
-    -webkit-transition: all 0.6s ease-in-out;
-    transition: all 0.6s ease-in-out;
-}
-
-.imageoption {
-    width: 110%;
-    height: auto;
-    max-width: 100%;
-}
-
-.linkoption {
+.quote {
+    font-size: 3em;
+    color: rgb(32, 32, 32);
     letter-spacing: 4px;
-    font-family: 'Raleway', sans-serif;
-    margin: 0;
-    color: #e6e6e6;
-    font-weight: 700;
-    text-transform: uppercase;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    padding: 0 30px;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    z-index: 1;
+    font-family: 'Times New Roman', Times, serif;
+    align-self: center;
+    text-align: center;
+    font-style: italic;
 }
 
-.option a:hover img,
-.option a.hover img {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+.quoteauthor {
+    font-size: 1.5em;
+    color: rgb(32, 32, 32);
+    letter-spacing: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    align-self: center;
+    text-align: center;
 }
 
-.option a:hover:after,
-.option a.hover:after {
-    width: 100%;
+.whatismdct {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    background: url(../images/back1.jpg) center center / cover no-repeat
 }
 
-
-/* 
-    ##Device = Most of the Smartphones Mobiles (Portrait)
-    ##Screen = B/w 320px to 375px
-*/
-
-@media (min-width: 320px) and (max-width: 374px) {
-    .logo_login {
-        font-size: 3em;
-        height: 8%;
-        margin-left: -23%;
-    }
-    .arrow1 {
-        display: none;
-    }
-    .arrow2 {
-        display: none;
-    }
-    .ourname {
-        left: 17%;
-        font-size: 0.7em;
-    }
-    .logintitle {
-        display: none;
-    }
-    .loginarea {
-        width: 17%;
-        height: 6%;
-    }
-    .formlogin {
-        height: 660%;
-        width: 521%;
-    }
+.whatismdct h2,
+.alreadyanuser h2,
+.getstarted h2 {
+    font-size: 2em;
+    color: white;
+    letter-spacing: 4px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
+.whatismdct .hr {
+    color: #fff;
+    background: #fff;
+    width: 8%;
+    height: 1px;
+}
 
-/* 
-    ##Device = iphone 7/8 (Portrait)
-    ##Screen = B/w 375px to 479px
-*/
+.alreadyanuser .hr,
+.getstarted .hr {
+    text-align: center;
+    color: #fff;
+    background: #fff;
+    width: 10%;
+    height: 1px;
+    margin-left: 45%;
+}
 
-@media (min-width: 375px) and (max-width: 480px) {
-    .logo_login {
-        font-size: 3em;
-        height: 8%;
-        margin-left: -11%;
-    }
-    .arrow1 {
-        margin-left: -186%;
-    }
-    /* Safari 4.0 - 8.0 */
-    @-webkit-keyframes arrow1 {
-        0% {
-            margin-left: -200%;
-        }
-        100% {
-            margin-left: -186%;
-        }
-    }
-    /* Standard syntax */
-    @keyframes arrow1 {
-        0% {
-            margin-left: -200%;
-        }
-        100% {
-            margin-left: -186%;
-        }
-    }
-    .arrow2 {
-        margin-left: 76%;
-    }
-    /* Safari 4.0 - 8.0 */
-    @-webkit-keyframes arrow2 {
-        0% {
-            margin-left: 100%;
-        }
-        100% {
-            margin-left: 76%;
-        }
-    }
-    /* Standard syntax */
-    @keyframes arrow2 {
-        0% {
-            margin-left: 100%;
-        }
-        100% {
-            margin-left: 7m6%;
-        }
-    }
-    .ourname {
-        left: 24%;
-        font-size: 0.7em;
-    }
-    .logintitle {
-        display: none;
-    }
-    .loginarea {
-        width: 17%;
-        height: 8%;
-    }
-    .formlogin {
-        height: 660%;
-        width: 521%;
-    }
+.whatismdct p,
+.alreadyanuser p,
+.getstarted p {
+    font-size: 1em;
+    color: rgb(233, 232, 232);
+    font-weight: 600;
+    justify-content: justify;
+}
+
+.whatismdct .button,
+.alreadyanuser .button,
+.getstarted .button {
+    border: none;
+    margin-top: 5px;
+    background-color: transparent;
+    color: white;
+    transition: .2s ease;
+    text-align: center
+}
+
+.whatismdct .button:hover,
+.alreadyanuser .button:hover,
+.getstarted .button:hover {
+    background-color: darken(transparent, 10%);
+    color: rgb(179, 175, 175);
+    transition: .2s ease;
+}
+
+.alreadyanuser {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    background: url(../images/photo3.jpg) center center / cover no-repeat
+}
+
+.alreadyanusercontent,
+.getstartedcontent {
+    padding-top: 20%;
+}
+
+.getstarted {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    background: url(../images/photo4.jpg) center center / cover no-repeat
+}
+
+.footer {
+    position: relative;
+    width: 100vw;
+    height: 30vh;
+    background-color: #242422;
+}
+
+.footer ul li {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: white;
+    transition: .2s ease;
+}
+
+.footer ul li a:hover {
+    color: rgb(212, 211, 211);
+    transition: .2s ease;
 }
 
 
 /* 
-    ##Device = Low Resolution Tablets, Mobiles (Landscape)
-    ##Screen = B/w 481px to 767px
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
 */
 
-@media (min-width: 481px) and (max-width: 767px) {
-    .logo_login {
-        font-size: 3em;
-        height: 8%;
-    }
-    .arrow1 {
-        margin-left: -145%;
-    }
-    /* Safari 4.0 - 8.0 */
-    @-webkit-keyframes arrow1 {
-        0% {
-            margin-left: -200%;
-        }
-        100% {
-            margin-left: -145%;
-        }
-    }
-    /* Standard syntax */
-    @keyframes arrow1 {
-        0% {
-            margin-left: -200%;
-        }
-        100% {
-            margin-left: -145%;
-        }
-    }
-    .ourname {
-        left: 5%;
-        font-size: 0.7em;
-    }
-    .logintitle {
-        display: none;
-    }
-    .loginarea {
-        width: 17%;
-        height: 6%;
-    }
-    .formlogin {
-        height: 615%;
-        width: 521%;
-    }
-}
-
-
-/* 
-    ##Device = Tablets, Ipads (landscape)
-    ##Screen = B/w 768px to 1024px
-*/
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .logo_login {
-        font-size: 3em;
-        height: 8%;
-    }
-    .arrow1 {
-        margin-left: -74%;
-    }
-    /* Safari 4.0 - 8.0 */
-    @-webkit-keyframes arrow1 {
-        0% {
-            margin-left: -90%;
-        }
-        100% {
-            margin-left: -74%;
-        }
-    }
-    /* Standard syntax */
-    @keyframes arrow1 {
-        0% {
-            margin-left: -90%;
-        }
-        100% {
-            margin-left: -74%;
-        }
-    }
-    .ourname {
-        left: 16%;
-    }
-    .logintitle {
-        margin-top: 6%;
-        left: 8%;
-        font-size: 1.5em;
-    }
-    .loginarea {
-        width: 23%;
-        height: 7%;
-    }
-    .formlogin {
-        height: 600%;
+@media (max-width: 1280px) {
+    .sliderhome .elements {
+        padding-top: 23%;
     }
 }
 
@@ -522,86 +330,44 @@ section::after {
     ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    .logo_login {
-        font-size: 3em;
-        height: 8%;
-    }
-    .arrow1 {
-        margin-left: -74%;
-    }
-    /* Safari 4.0 - 8.0 */
-    @-webkit-keyframes arrow1 {
-        0% {
-            margin-left: -90%;
-        }
-        100% {
-            margin-left: -74%;
-        }
-    }
-    /* Standard syntax */
-    @keyframes arrow1 {
-        0% {
-            margin-left: -90%;
-        }
-        100% {
-            margin-left: -74%;
-        }
-    }
-    .ourname {
-        left: 16%;
-    }
-    .logintitle {
-        margin-top: 6%;
-        left: 8%;
-        font-size: 1.5em;
-    }
-    .loginarea {
-        width: 23%;
-        height: 7%;
-    }
-    .formlogin {
-        height: 600%;
+@media (max-width: 1024px) {
+    .sliderhome .elements {
+        padding-top: 28%;
     }
 }
 
 
 /* 
-    ##Device = Laptops, Desktops
-    ##Screen = B/w 1025px to 1280px
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
 */
 
-@media (min-width: 1025px) and (max-width: 1280px) {
-    .arrow1 {
-        margin-left: -43%;
+@media (max-width: 767px) {
+    .sliderhome .elements {
+        padding-top: 34%;
     }
-    /* Safari 4.0 - 8.0 */
-    @-webkit-keyframes arrow1 {
-        0% {
-            margin-left: -50%;
-        }
-        100% {
-            margin-left: -43%;
-        }
+}
+
+
+/* 
+    ##Device = iphone 7/8 (Portrait)
+    ##Screen = B/w 375px to 479px
+*/
+
+@media (max-width: 480px) {
+    .sliderhome .elements {
+        padding-top: 50%;
     }
-    /* Standard syntax */
-    @keyframes arrow1 {
-        0% {
-            margin-left: -50%;
-        }
-        100% {
-            margin-left: -43%;
-        }
-    }
-    .ourname {
-        left: 25%;
-    }
-    .logintitle {
-        font-size: 1.5em;
-        left: 16%;
-        margin-top: 13%;
-    }
-    .loginarea {
-        width: 20%;
+}
+
+
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 375px
+*/
+
+@media (max-width: 374px) {
+    .sliderhome .elements {
+        padding-top: 73%;
     }
 }

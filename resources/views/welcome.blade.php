@@ -7,15 +7,15 @@
 
         <title>Laravel</title>
 
-        <!-- Jquery scrolldown-->
-        <script type="text/javascript" src="{{ asset('js/scrolldown.js') }}"></script>
+       
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-        
+         <!-- Jquery scrolldown-->
+         <script type="text/javascript" src="{{ asset('js/scrolldown.js') }}"></script>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -28,121 +28,109 @@
     </head>
     <body>
     <!-- State one -->
-    <section id="section01" class="demo">
-        <div class="loginarea">
-            <div class="container">
-                <div class="row">
-                <i class="col-3 material-icons logo_login" >account_circle</i>
-            
-            @if (Route::has('login'))
-                @auth
-                    <a class="col-8" href="{{ url('/home') }}">
-                    <span class="logintitle">HOME</span>
-                </a>
-                @else
-                <span class="col-8 logintitle">LOGIN</span>
-                <div class="formlogin">
-                <form class="formulari" method="POST" action="{{ route('login') }}">
-                {{ csrf_field() }}
-                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <label for="email" class="col-md-5 control-label">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        @if ($errors->has('email'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                        <label for="password" class="col-md-4 control-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password" required>
-                        @if ($errors->has('password'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="remember" {{ old('remember') ? 'checked' : '' }} id="checkbox" style="margin-left:0!important;">
-                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-            </div>
-            @endauth
-            @endif
-        </div>
-                </div>
 
+    <div class="sliderhome" id="sliderhome">
+        <div class="container-fluid">
+            <div class="row  justify-content-end text-right mr-2 pt-4">
+                @if (Route::has('login'))
+                    @auth
+                        <a href="{{ url('/home') }}">
+                            <span class="align-self-center logintitle">HOME</span>
+                            <i class=" material-icons logo_login" >account_circle</i>   
+                        </a>         
+                    @else
+                        <a class="" href="{{ url('/login') }}">                       
+                            <span class=" align-self-center logintitle">LOGIN</span>
+                            <i class=" material-icons logo_login" >account_circle</i>
+                        </a>
+
+                @endauth
+            @endif
             </div>
-            
-        <img class="arrow1" src="{{ asset('images/Arrow1.png') }}">
-        <img class="arrow2" src="{{ asset('images/Arrow2.png') }}">
-        <p class="ourname">MINIMAL DRAGON COMBAT TRACKER</p>
-        <a href="#statetwooptions"><span class="flecha"></span></a>
-    </section>
+            <div class="row  elements">
+                <div class="col-lg-6 justify-content-center text-center center-block logo">
+                    <img src="{{ asset('images/logo.png') }}" alt="">
+                </div>
+                <div class="col-lg-6 align-self-center text-center center-block ">
+                    <h1 class="ourname ">MINIMAL DRAGON COMBAT TRACKER</h1>
+                </div> 
+            </div>
+            <div class="row justify-content-center text-center center-block ">
+                <Span class="quoteslider">A new generation for role games</Span>
+            </div>
+            <div class="row justify-content-center text-center center-block">
+                <a class="flechita" href="#statetwooptions">
+                    <i class="material-icons">keyboard_arrow_down</i>
+                </a>
+            </div>
+        </div>
+    </div> 
 
     <!-- State two -->
 
-    <div class="container">
-        <div class="row statetwooptions" id="statetwooptions">
-            <div class="col-md-3 option">
-                <a href="">
-                    <span class="linkoption">WHAT IS MDCT</span>
-                    <img class="imageoption" src="{{ asset('images/photo1.jpg') }}" alt="">
-                </a>
-
+    <div class="container-fluid" id="statetwooptions">
+        <div class="quoteblock">
+            <div class="row justify-content-md-center mt-5 mb-5 ">
+                <span class="quote col-md-6 col-sm-12">"All we have to decide is what to do with the time that is given us"</span>
             </div>
-            <div class="col-md-3 option">
-                <a href="">
-                    <span class="linkoption">UPDATES</span>
-                    <img class="imageoption" src="{{ asset('images/photo2.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 option">
-                <a href="">
-                    <span class="linkoption">LOG IN</span>
-                    <img class="imageoption" src="{{ asset('images/photo3.jpg') }}" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 option">
-                <a href="">
-                    <span class="linkoption">GET STARTED</span>
-                    <img class="imageoption" src="{{ asset('images/photo4.jpg') }}" alt="">
-                </a>
+            <div class="row justify-content-md-center mb-5">
+                <span class="quote col-md-6 col-sm-12 quoteauthor">J.R.R. Tolkien</span>
             </div>
         </div>
+        <div class="row whatismdct">
+            <div class=" flex align-self-center">
+                    <h2 class="mt-4 ml-5">WHAT IS MDCT</h2>
+                    <div class="hr ml-5"></div>
+                    <p class="col-md-6 col-sm-8 col-10  mt-4 ml-5 mr-5">Simple, easy, elegant. Minimal Dragon Combat Tracker gives you a new way to manage your characters and role games like never before</p>
+                    <a name="" id="" class="btn button ml-5" href="#" role="button">READ MORE</a>
+                </div>
+        </div>
+        <div class="row ">
+            <div class="col-md-6 alreadyanuser">
+                <div class="flex align-self-center justify-content-center text-center alreadyanusercontent">
+                    <h2 class="">ALREADY AN USER?</h2>
+                    <div class="hr justify-content-center text-center center-block"></div>
+                    <p class="  mt-4 ml-5 mr-5">Welcome back! we are glad to see you again</p>
+                    <a name="" id="" class="btn button " href="/login" role="button">LOGIN</a>
+                </div>
+                
+            </div>
+            <div class="col-md-6 getstarted">
+                <div class="flex align-self-center justify-content-center text-center getstartedcontent">
+                    <h2 class="">GET STARTED</h2>
+                    <div class="hr justify-content-center text-center center-block"></div>
+                    <p class="mt-4 ml-5 mr-5">Have you decided to join us? Congrats!<br> You're just few steps away from manage your heroes and games</p>
+                    <a name="" id="" class="btn button " href="#" role="button">REGISTER</a>
+                </div>
+            </div>
+        </div>
+        <div class="quoteblock">
+            <div class="row justify-content-md-center mt-5 mb-5 ">
+                <span class="quote col-md-6 col-sm-12">"The essence of a role-playing game is that it is a group, cooperative experience"</span>
+            </div>
+            <div class="row justify-content-md-center mb-5">
+                <span class="quote col-md-6 col-sm-12 quoteauthor">Gary Gygax</span>
+            </div>
+        </div>
+        <div class="row  footer">
+            <div class="col-4 align-self-center">
+                <a href="#sliderhome">
+                    <img  class="logofooter" src="{{ asset('images/logo.png') }}" alt="">
+                </a>
+            </div>
+            <div class="col-4">
+                
+            </div>
+            <div class="col-4 align-self-center">
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Updates</a></li>
+                </ul>
+            </div>
+        </div>       
     </div>
-
-    <!--
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    -->
     </body>
 
 </html>

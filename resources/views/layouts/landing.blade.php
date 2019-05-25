@@ -37,11 +37,13 @@
     <header>
     <!-- Navbar -->
     <nav id="side-nav" >
-        <img src="{{ asset('images/logo.png') }}" alt="MDCT" class="logonav">
+        <a href="/">
+            <img src="{{ asset('images/logo.png') }}" alt="MDCT" class="logonav">
+        </a>
         <ul class="optionsnav">
             <li><a href="#">WHAT'S MDCT</a></li>
             <li><a href="#">UPDATES</a></li>
-            <li><a href="#">LOGIN</a></li>
+            <li><a href="/login">LOGIN</a></li>
             <li><a href="#">GET STARTED</a></li>
         </ul>
         <a href="#"><i class="material-icons navBtn">more_vert</i></a>
@@ -49,26 +51,26 @@
         <!-- Navbar small -->
 
         <nav class="navbar navbar-inverse navsmall">
-        <div class="container-fluid">
-            <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span> 
-            </button>
-            <a class="navbar-brand" href="#">
-            <img src="{{ asset('images/logo.png') }}" alt="MDCT" width="30" height="30">
-            </a>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                    </button>
+                    <a class="navbar-brand" href="/">
+                    <img src="{{ asset('images/logo.png') }}" alt="MDCT" width="30" height="30">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">WHAT'S MDCT</a></li>
+                    <li><a href="#">UPDATES</a></li>
+                    <li><a href="/login">LOGIN</a></li> 
+                    <li><a href="#">GET STARTED</a></li> 
+                </ul>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">WHAT'S MDCT</a></li>
-                <li><a href="wwww.google.es">UPDATES</a></li>
-                <li><a href="#">LOGIN</a></li> 
-                <li><a href="#">GET STARTED</a></li> 
-            </ul>
-            </div>
-        </div>
         </nav>
         </header>
         <!-- Background Hexagons-->
@@ -190,8 +192,60 @@
                 </g>  
             </g>
             </svg>
+            <?php //funció per cambiar el banner aleatoriament
+                $bg = array('back2.jpg', 'back3.jpg', 'back4.jpg');
+                $i = rand(0, count($bg)-1); 
+                $selected = "$bg[$i]"; 
+            ?> 
+            <div class="superior" style="background: url(../images/<?php echo $selected; ?>) center center / cover no-repeat;">   
+                <div class="container">
+                    <div class="row flex-row align-content-center">
+                        <div class="col-4">
+                            
+                        </div>
+                        <div class="col-4 text-center center-block">
+                            <span>
+                                <?php 
+                                    
+                                    $idpage= $_SERVER['REQUEST_URI'];
+                                    if ($idpage == "/login") {
+                                        $quote = array('Welcome back<br>Your heroes were waiting for you...', 'Welcome back<br>This place hasn\'t been the same without you...', 'Our alliance is inseparable...');
+                                        $i = rand(0, count($quote)-1); 
+                                        $selected = "$quote[$i]";
+                                        echo $selected ;
+                                    }    
+                                ?>
+                            </span>
+                        </div>
+                        <div class="col-4">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
             <div class="content">
             @yield('content')
+            </div>
+            <div class="inferior">   
+                <div class="container">
+                    <div class="row flex-row align-content-center pl-4 pr-4">
+                        <h3 class=" col-md-12 col-sm-10 col-8  mt-4 ml-5 mr-5">MDCT says...</h3>
+                        <span class=" col-md-12 col-sm-10 col-8  mt-4 ml-5 mr-5">
+                            <?php    
+                                $quote = array('Keep always your heroes updated in order to not to confuse the game master', 
+                                'Remember erase the campaign that are already over', 
+                                'you can check the stats of your company, it helps you to take some decisions',
+                                'Check always the combat log, that\'s where the game master can comunicatw with the company',
+                                'Don\'t forget to give to your hero a good back story.<br>Remember everyone is here for the plot... ');
+                                $i = rand(0, count($quote)-1); 
+                                $selected = "$quote[$i]";
+                                echo $selected ; 
+                            ?>
+                        </span>
+                    </div>
+                </div>
+                
             </div>
         
 </body>

@@ -7,7 +7,7 @@
 html,
 body {
     height: 100%;
-    background: url(../images/landing/background.jpg) center center / cover no-repeat;
+    background-color: rgb(238, 237, 237);
     overflow-x: hidden;
 }
 
@@ -96,6 +96,7 @@ a {
 .navsmall {
     z-index: 99;
     display: none;
+    margin-bottom: 0px;
 }
 
 
@@ -119,23 +120,100 @@ a {
 }
 
 .hexagons:hover {
-    fill: rgba(255, 255, 255, 0.08);
+    fill: rgba(255, 255, 255, 0.3);
 }
 
 .active polygon {
-    fill: rgba(255, 255, 255, 0.2);
+    fill: rgba(255, 255, 255, 0.3);
 }
 
 .hexagons polygon:hover {
-    fill: rgba(255, 255, 255, 0.08);
+    fill: rgba(255, 255, 255, 0.3);
+}
+
+
+/*superior part*/
+
+.superior,
+.inferior {
+    position: relative;
+    width: 100vw;
+    height: 30vh;
+    padding-top: 6%;
+}
+
+.superior span {
+    font-size: 2em;
+    color: white;
+    letter-spacing: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 4s;
+}
+
+.inferior span {
+    font-size: 1em;
+    text-justify: auto;
+    color: #242422;
+    letter-spacing: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 8s;
+}
+
+.inferior h3 {
+    font-size: 2em;
+    color: #242422;
+    letter-spacing: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    -webkit-animation-name: ourname;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: ourname;
+    animation-duration: 8s;
+}
+
+
+/* Safari 4.0 - 8.0 */
+
+@-webkit-keyframes ourname {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Standard syntax */
+
+@keyframes ourname {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 
 /*page content*/
 
 .content {
-    margin: auto;
-    margin-top: 15%;
+    background-color: #242422;
+    height: 40vh;
+    padding-top: 3%;
+    box-shadow: 0px 4px 7px grey;
 }
 
 
@@ -182,5 +260,65 @@ a {
     }
     .navsmall {
         display: block;
+    }
+}
+
+
+/* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+*/
+
+@media (max-width: 1280px) {
+    .superior {
+        padding-top: 8%;
+    }
+}
+
+
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+*/
+
+@media (max-width: 1024px) {
+    .superior {
+        padding-top: 10%;
+    }
+}
+
+
+/* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+*/
+
+@media (max-width: 767px) {
+    .superior {
+        padding-top: 12%;
+    }
+}
+
+
+/* 
+    ##Device = iphone 7/8 (Portrait)
+    ##Screen = B/w 375px to 479px
+*/
+
+@media (max-width: 480px) {
+    .superior {
+        padding-top: 14%;
+    }
+}
+
+
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 375px
+*/
+
+@media (max-width: 374px) {
+    .superior {
+        padding-top: 18%;
     }
 }
