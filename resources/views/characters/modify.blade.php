@@ -1,19 +1,8 @@
 @extends('layouts.lobby')
 
 @section('content')
-<div class="modifyCharacter">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="panel-heading text-justify">MODIFY CHARACTER</div>
-        </div>
-        <div class="row justify-content-center">
-            <p class="fancy nickname"><span>{{Auth::user()->nick}}</span></p>
-        </div>
-        <div class="row justify-content-center">   
-            <p class="charactername">{{$character->name}}</p> 
-        </div>
-    </div>
-    <div class="container">
+<div class="createCharacter fullpage">
+    <div class="container" >
         <form method="POST" action="{{ action('CharacterController@update',['charid' => $character->id]) }}">
             {{ csrf_field() }}
 
@@ -643,14 +632,14 @@
             </div>
         </div>
         <div class="container">
-            <div class="row justify-content-center">
-                <button type="submit" class="btn btn-dark btn-lg buttonselect mt-4 mb-4">Modify Character</button>
+            <div class="row justify-content-center text-center">
+                <button type="submit" class="btn btn-dark btn-lg buttonselect mt-4" style="color:#2e2e2d!important;">Modify Character</button>
             </div>
         </div>
     </form>
     <div class="container">
-        <div class="row justify-content-center mb-4" style="margin-bottom:2em;">
-            <a  class="btn btn-dark btn-lg buttonselect" href="{{ action('CharacterController@indexCharacters') }}" role="button">
+        <div class="row justify-content-center text-center" style="margin-bottom:2em;">
+            <a  class="btn btn-dark btn-lg buttonselect" href="{{ action('CharacterController@indexCharacters') }}" style="color:#2e2e2d!important;" role="button">
                 BACK
             </a>
         </div>

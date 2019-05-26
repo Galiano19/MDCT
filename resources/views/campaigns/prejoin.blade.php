@@ -2,11 +2,7 @@
 
 @section('content')
 <div class="joinCampaign">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="panel-heading text-justify">JOIN A CAMPAIGN</div>
-        </div> 
-    </div>
+    
     <div class="container">
         <form method="POST" action="{{ action('CampaignController@joinCampaign') }}">
             {{ csrf_field() }}
@@ -24,16 +20,16 @@
                 <label for="">Campaign Code:</label>
                 <input class="form-control" type="text" name="code" id="code">
             </div>
-            <div class="row mt-4">
-                <button type="submit" class="btn btn-dark btn-lg">Join a Campaign</button>
+            <div class="row justify-content-center text-center">
+                <button type="submit" class="btn btn-dark btn-lg buttonselect mt-4" >Join a Campaign</button>
             </div>
-        </form>
-        <div class="container">
-            <div class="row justify-content-center mb-4" style="margin-bottom:2em;">
-                <a  class="btn btn-dark btn-lg buttonselect" href="{{action('CampaignController@indexCampaigns')}}" role="button">
-                    BACK
-                </a>
-            </div>
+        </div>
+    </form>
+    <div class="container">
+        <div class="row justify-content-center text-center" style="margin-bottom:2em;margin-top:4%;">
+            <a  class="btn btn-dark btn-lg buttonselect" href="{{ action('CampaignController@indexCampaigns') }}" style="color:#2e2e2d!important;" role="button">
+                BACK
+            </a>
         </div>
     </div>
 </div>

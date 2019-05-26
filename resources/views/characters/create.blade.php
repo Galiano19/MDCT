@@ -1,16 +1,7 @@
 @extends('layouts.lobby')
 
 @section('content')
-<div class="createCharacter">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="panel-heading text-justify">CREATE CHARACTER</div>
-        </div>
-        <div class="row justify-content-center">
-            <p class="fancy nickname"><span>{{Auth::user()->nick}}</span></p>
-        </div>
-    </div>
-
+<div class="createCharacter fullpage">
     <div class="container">
     <form method="POST" action="{{ action('CharacterController@store') }}">
         {{ csrf_field() }}
@@ -294,14 +285,7 @@
                         <option value="2">Expertise</option>
                     </select>
                 </div> 
-                <div class="col-sm-2 ">
-                    <label class="mt-1" for="">Insight</label>
-                    <select name="insight" class="form-control" placeholder="Insight">
-                        <option value="0">None</option>
-                        <option value="1">Proficency</option>
-                        <option value="2">Expertise</option>
-                    </select>
-                </div>      
+              
             </div>
         </div>
         <div class="container">
@@ -337,14 +321,14 @@
             </div>
         </div>
         <div class="container">
-            <div class="row justify-content-center">
-                <button type="submit" class="btn btn-dark btn-lg buttonselect mt-4 mb-4">Create Character</button>
+            <div class="row justify-content-center text-center">
+                <button type="submit" class="btn btn-dark btn-lg buttonselect mt-4" style="color:#2e2e2d!important;">Create Character</button>
             </div>
         </div>
     </form>
     <div class="container">
-        <div class="row justify-content-center mb-4" style="margin-bottom:2em;">
-            <a  class="btn btn-dark btn-lg buttonselect" href="{{ action('CharacterController@indexCharacters') }}" role="button">
+        <div class="row justify-content-center text-center" style="margin-bottom:2em;">
+            <a  class="btn btn-dark btn-lg buttonselect" href="{{ action('CharacterController@indexCharacters') }}" style="color:#2e2e2d!important;" role="button">
                 BACK
             </a>
         </div>

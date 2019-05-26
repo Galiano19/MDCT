@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MDCT - Lobby</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -88,7 +87,10 @@
     </nav>
 </header>
 <!-- Background Hexagons-->
-<svg class="hexagons" width="600" height="265"  viewBox="0 0 350 210">
+<?php
+$idpage= $_SERVER['REQUEST_URI'];
+if (($idpage != "/characters/show")&&($idpage != "/campaigns/create")&&($idpage != "/campaigns/index")&&($idpage != "/campaign/prejoin")) {     
+    echo '<svg class="hexagons" width="600" height="265"  viewBox="0 0 350 210">
     <g transform="translate(300,132.5)">
         <g class="tile" transform="translate(-333.41978045700887,52.5)">
         <polygon points="35.000,0.000 17.500,30.311 -17.500,30.311 -35.000,0.000 -17.500,-30.311 17.500,-30.311" transform="rotate(-30)"></polygon>
@@ -205,45 +207,80 @@
         <polygon points="35.000,0.000 17.500,30.311 -17.500,30.311 -35.000,0.000 -17.500,-30.311 17.500,-30.311" transform="rotate(-30)"></polygon>
         </g>  
     </g>
-</svg>
+</svg>' ;
+    } 
+    ?>
 <?php //funció per cambiar el banner aleatoriament
     $bg = array('back5.jpg', 'back6.jpg', 'back7.jpg');
     $i = rand(0, count($bg)-1); 
     $selected = "$bg[$i]"; 
 ?> 
 <div class="superior" style="background: url(../images/<?php echo $selected; ?>) center center / cover no-repeat;">   
-        <div class="container">
-            <div class="row flex-row align-content-center">
-                <div class="col-4">
-                    
-                </div>
-                <div class="col-4 text-center center-block">
-                    <span>
-                        <?php 
-                            
-                            $idpage= $_SERVER['REQUEST_URI'];
-                            if ($idpage == "/home") {
-                                
-                                echo "MDCT" ;
-                            }       
-                        ?>
+    <div class="container">
+        <div class="row flex-row align-content-center">
+            <div class="col-4"></div>
+            <div class="col-4 text-center center-block">
+                <span>
+                    <?php 
+                        $idpage= $_SERVER['REQUEST_URI'];
+                        if ($idpage == "/home") {
+                            echo "MDCT" ;
+                            }   
+                        elseif (($idpage == "/characters/index")||($idpage == "/characters/show") ){     
+                            echo "CHARACTERS" ;
+                            }
+                        elseif (($idpage == "/characters/create")){     
+                            echo "CREATE CHARACTER" ;
+                            }
+                        elseif (($idpage == "/campaigns/index")){     
+                            echo "CAMPAIGNS" ;
+                            }
+                        elseif (($idpage == "/campaigns/create")){     
+                            echo "NEW CAMPAIGN" ;
+                            }
+                        elseif (($idpage == "/campaigns/prejoin")){     
+                            echo "JOIN A CAMPAIGN" ;
+                            }
+                        else{     
+                            echo "MODIFY CHARACTER" ;
+                            }        
+                    ?>
                     </span>
                     <div class="row justify-content-center">        
                         <p class="fancy nickname"><span>{{Auth::user()->nick}}</span></p>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-4">
-                    
-                </div>
+                    </div>
+                </div> 
             </div>
+            <div class="col-4"></div>
         </div>
-        
-    </div>    
-    <div class="content">
-    @yield('content')
     </div>
+</div>    
+<div class="content" style="z-index:999;">
+    @yield('content')
 </div>
 
+<?php
+    $idpage= $_SERVER['REQUEST_URI'];
+    if ($idpage == "/characters/index") {     
+        echo '<div class="inferior">   
+        <div class="container">
+            <div class="row flex-row align-content-center pl-4 pr-4">
+                <h3 class=" col-md-12 col-sm-10 col-8  mt-4 ml-5 mr-5">About characters...</h3>
+                <span class=" col-md-12 col-sm-10 col-8  mt-4 ml-5 mr-5">';
+                $quote = array('Keep always your heroes updated in order to not to confuse the game master', 
+                'Be proud of the heroe you have raised', 
+                'Only you can modify the stats of your characters',
+                'More classes incoming...',
+                'Is this strong enough?',
+                'Don\'t forget to give to your hero a good back story.<br>Remember everyone is here for the plot... ');
+                $i = rand(0, count($quote)-1); 
+                $selected = "$quote[$i]";
+                echo $selected ; 
+                echo '</span>
+                </div>
+            </div>   
+        </div>';
+    }
+?>
 </body>
 </html>

@@ -1,34 +1,33 @@
 @extends('layouts.lobby')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="panel-heading text-justify">CAMPAIGNS</div>
-    </div>
-    <div class="row justify-content-center">        
-        <p class="fancy nickname"><span>{{Auth::user()->nick}}</span></p>
+<div class="container" style="margin-top: 4%;margin-bottom: 8%;">
+    <div class="row" >
+        <div class="col-md-6 text-center">
+        <a href="{{ action('CampaignController@createCampaigns') }}"><button type="button" class="btn btn-dark btn-lg buttonselect">Create Campaign</button></a>
         </div>
-    </div> 
-</div>
-<div class="container">
-    <div class="row justify-content-around">
-        <a class="btn btn-dark btn-lg" href="{{ action('CampaignController@createCampaigns') }}">Create Campaign</a><br>
-        <a class="btn btn-dark btn-lg" href="{{ action('CampaignController@prejoinCampaign') }}">Join a Campaign</a>
+        <div class="col-md-6 text-center">
+            <button type="button" class="btn btn-dark btn-lg buttonselect"><a href="{{ action('CampaignController@prejoinCampaign') }}">Join a Campaign</a></button>
+        </div>
     </div>
 </div>
-<div class="container">
-    <div class="d-flex flex-wrap justify-content-around " style="margin-top:5%;">
-
+<div class="container"style="margin-bottom: 4%;">
+    <div class="row boxcontent">
         @foreach ($campaigns as $campaign)
-        <div class="card charactercard" style="width: 18rem;">
-            <div class="card-body ">
-                <h5 class="card-title">{{ $campaign->name }}</h5>
-                <div class="row justify-content-around">
-                    <p class="card-text">{{ $campaign->description }}</p>
-                    <a href="{{action('CampaignController@checkCampaign',['campid' =>  $campaign->campaign_id])}}" class="card-link">CHECK</a>
-                </div>            
-            </div>
-        </div>
+            <a href="{{action('CampaignController@checkCampaign',['campid' =>  $campaign->campaign_id])}}">
+                <div class="container-fluid charactercard">
+                    <div class="row text-center">
+                        <p class="charactertitle">{{ $campaign->name }}</p>
+                    </div>
+                    <div class="row text-center">
+                        <div class="hr"></div>
+                    </div>
+                    <div class="row text-center">
+                    <p>LEVEL: {{ $campaign->description }}</p>
+                    </div>
+
+                </div>
+            </a>
         @endforeach
     </div>
 </div>
